@@ -87,13 +87,13 @@ export function Hero() {
         data-hero-stage
         className="sticky top-0 h-[100svh] overflow-hidden"
       >
-        <HeroCanvas />
-
         <CafeAmbientVideo
           id="heroImgA"
           variant="hero"
-          className="absolute inset-0 z-[1] will-change-[transform,opacity]"
+          className="absolute inset-0 z-0 will-change-[transform,opacity]"
         />
+
+        <HeroCanvas overlayOnly />
 
         <div
           className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.72)] via-[rgba(28,22,15,0.35)] to-[rgba(28,22,15,0.88)] max-md:from-[rgba(28,22,15,0.78)] max-md:via-[rgba(28,22,15,0.45)]"

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-export function HeroCanvas() {
+export function HeroCanvas({ overlayOnly = false }: { overlayOnly?: boolean }) {
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
   const fxCanvasRef = useRef<HTMLCanvasElement>(null);
   const reducedMotion = useReducedMotion();
@@ -63,12 +63,14 @@ export function HeroCanvas() {
       const h = heroCanvas.height;
       hctx.clearRect(0, 0, w, h);
 
-      const base = hctx.createLinearGradient(0, 0, 0, h);
-      base.addColorStop(0, "#221A12");
-      base.addColorStop(0.55, "#1C160F");
-      base.addColorStop(1, "#15100A");
-      hctx.fillStyle = base;
-      hctx.fillRect(0, 0, w, h);
+      if (!overlayOnly) {
+        const base = hctx.createLinearGradient(0, 0, 0, h);
+        base.addColorStop(0, "#221A12");
+        base.addColorStop(0.55, "#1C160F");
+        base.addColorStop(1, "#15100A");
+        hctx.fillStyle = base;
+        hctx.fillRect(0, 0, w, h);
+      }
 
       const gx = w * (0.72 - p * 0.16);
       const gy = h * (0.82 - p * 0.5);
@@ -111,7 +113,7 @@ export function HeroCanvas() {
         Math.max(w, h) * 0.75,
       );
       v.addColorStop(0, "rgba(21,16,10,0)");
-      v.addColorStop(1, "rgba(18,12,7,0.62)");
+      v.addColorStop(1, overlayOnly ? "rgba(18,12,7,0.28)" : "rgba(18,12,7,0.62)");
       hctx.fillStyle = v;
       hctx.fillRect(0, 0, w, h);
       lastP = p;
@@ -171,14 +173,14 @@ export function HeroCanvas() {
       cancelAnimationFrame(rafId);
       triggers.forEach((trigger) => trigger.kill());
     };
-  }, [reducedMotion]);
+  }, [reducedMotion, overlayOnly]);
 
   return (
     <>
       <canvas
         ref={heroCanvasRef}
         id="heroCanvas"
-        className="absolute inset-0 z-0 h-full w-full"
+        className="absolute inset-0 z-[1] h-full w-full"
         aria-hidden
       />
       <canvas
