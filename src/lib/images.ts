@@ -12,6 +12,8 @@ export const siteImages = {
   mesaAlSol: "/images/mesa-al-sol.jpeg",
   pourOver: "/images/pour-over.jpeg",
   footerBg: "/images/footer-bg.png",
+  heroVideoPoster: "/images/footer-bg-poster.jpg",
+  heroVideo: "/videos/footer-bg.mp4",
 } as const;
 
 export type SiteImageKey = keyof typeof siteImages;

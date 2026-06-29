@@ -68,6 +68,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <head>
         <link rel="preload" as="image" href={siteImages.hero} />
         <link rel="preload" as="image" href={siteImages.logo} />
+        <link rel="preload" as="image" href={siteImages.heroVideoPoster} />
+        <link rel="preload" as="video" href={siteImages.heroVideo} type="video/mp4" />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>

@@ -89,11 +89,11 @@ export function Hero() {
         <CafeAmbientVideo
           id="heroImgA"
           variant="hero"
-          className="absolute inset-0 z-0 will-change-[transform,opacity]"
+          className="will-change-transform"
         />
 
         <div
-          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.62)] via-[rgba(28,22,15,0.22)] to-[rgba(28,22,15,0.78)] max-md:from-[rgba(28,22,15,0.68)] max-md:via-[rgba(28,22,15,0.28)]"
+          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.48)] via-[rgba(28,22,15,0.12)] to-[rgba(28,22,15,0.58)] max-md:from-[rgba(28,22,15,0.52)] max-md:via-[rgba(28,22,15,0.16)]"
           aria-hidden
         />
 

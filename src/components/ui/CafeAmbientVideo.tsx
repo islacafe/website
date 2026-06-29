@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { siteImages } from "@/lib/images";
 
-export const CAFE_VIDEO = "/videos/footer-bg.mp4";
-export const CAFE_VIDEO_POSTER = "/images/footer-bg-poster.jpg";
+export const CAFE_VIDEO = siteImages.heroVideo;
+export const CAFE_VIDEO_POSTER = siteImages.heroVideoPoster;
 
 type CafeAmbientVideoProps = {
   className?: string;
@@ -22,6 +23,7 @@ export function CafeAmbientVideo({
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(variant === "hero");
+  const [videoFailed, setVideoFailed] = useState(false);
   const isHero = variant === "hero";
 
   useEffect(() => {
@@ -47,11 +49,21 @@ export function CafeAmbientVideo({
     }
 
     video.muted = true;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay blocked — poster remains visible via the video element.
-      });
+
+    const play = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay blocked — poster image underneath remains visible.
+        });
+      }
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      play();
+    } else {
+      video.addEventListener("loadeddata", play, { once: true });
+      return () => video.removeEventListener("loadeddata", play);
     }
   }, [inView, reducedMotion, isHero]);
 
@@ -61,27 +73,30 @@ export function CafeAmbientVideo({
         ref={containerRef}
         id={id}
         data-hero-img
-        className={`relative overflow-hidden bg-ink-deep ${className}`}
+        className={`absolute inset-0 z-0 h-full w-full overflow-hidden bg-ink-deep ${className}`}
       >
-        {reducedMotion ? (
-          <SiteImage
-            src={CAFE_VIDEO_POSTER}
-            alt=""
-            fill
-            className="object-cover object-[center_42%]"
-          />
-        ) : (
+        <SiteImage
+          src={CAFE_VIDEO_POSTER}
+          alt=""
+          fill
+          priority
+          className="object-cover object-[center_42%]"
+        />
+
+        {!reducedMotion && !videoFailed && (
           <video
             ref={videoRef}
             src={CAFE_VIDEO}
-            className="absolute inset-0 h-full w-full object-cover object-[center_42%]"
+            width={960}
+            height={534}
+            className="absolute inset-0 z-[1] block h-full w-full object-cover object-[center_42%]"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            poster={CAFE_VIDEO_POSTER}
             aria-hidden="true"
+            onError={() => setVideoFailed(true)}
           />
         )}
       </div>
@@ -101,17 +116,19 @@ export function CafeAmbientVideo({
         className="object-cover object-center"
       />
 
-      {!reducedMotion && inView && (
+      {!reducedMotion && inView && !videoFailed && (
         <video
           ref={videoRef}
           src={CAFE_VIDEO}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          width={960}
+          height={534}
+          className="absolute inset-0 z-[1] block h-full w-full object-cover object-center"
           muted
           loop
           playsInline
           preload="auto"
-          poster={CAFE_VIDEO_POSTER}
           aria-hidden="true"
+          onError={() => setVideoFailed(true)}
         />
       )}
     </div>
