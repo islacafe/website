@@ -45,7 +45,9 @@
         "title": "Neighborhood table",
         "body": "A place to stay awhile: neighbors, laptops, dominoes, and long conversations."
       }
-    ]
+    ],
+    "cta": "Our Story",
+    "ctaAria": "Discover Isla Café's story on Instagram"
   },
   "menu": {
     "number": "01",
@@ -123,7 +125,9 @@
   "espacio": {
     "number": "03",
     "label": "The space",
-    "title": "Morning light, plants, and the aroma of fresh roast."
+    "title": "Morning light, plants, and the aroma of fresh roast.",
+    "cta": "Learn more",
+    "ctaAria": "Go to Visit Us to learn more about Isla Café"
   },
   "instagram": {
     "number": "04",

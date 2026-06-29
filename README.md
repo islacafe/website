@@ -38,9 +38,9 @@ Production URL: [https://islacafemiami.pages.dev/es](https://islacafemiami.pages
 
 ## Instagram feed
 
-The homepage shows a 4×4 grid of the latest posts from [@islacafemiami](https://www.instagram.com/islacafemiami/). Posts are fetched at **build time** via the [Instagram Graph API](https://developers.facebook.com/docs/instagram-api) and saved to `public/images/instagram/`.
+The homepage shows a 2×4 grid of the latest posts from [@islacafemiami](https://www.instagram.com/islacafemiami/). Posts are fetched at **build time** via the [Instagram Graph API](https://developers.facebook.com/docs/instagram-api) and saved to `public/images/instagram/`.
 
-**Fallback:** If the API is unavailable or returns no posts, the site shows a committed 4×4 grid using site photography from [`src/data/fallback/instagram-posts.json`](src/data/fallback/instagram-posts.json). Live data replaces the fallback automatically once a successful fetch runs.
+**Fallback:** If the API is unavailable or returns no posts, the site shows a committed 2×4 grid using site photography from [`src/data/fallback/instagram-posts.json`](src/data/fallback/instagram-posts.json). Live data replaces the fallback automatically once a successful fetch runs.
 
 ### One-time Meta setup (client)
 
@@ -131,6 +131,6 @@ See `public/images/README.md` for the full filename list.
 - Leave a review on Google button
 - WhatsApp floating chat button (bottom-right)
 - FAQ accordion
-- Instagram 4×4 feed (auto-refreshed via scheduled Cloudflare rebuilds)
+- Instagram 2×4 feed (auto-refreshed via scheduled Cloudflare rebuilds)
 - Mobile nav drawer and responsive layouts
 - `prefers-reduced-motion` support

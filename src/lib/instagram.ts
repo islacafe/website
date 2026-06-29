@@ -27,6 +27,10 @@ export const instagramFeed = hasInstagramContent(live) ? live : fallback;
 
 export const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/islacafemiami/";
 
+export const INSTAGRAM_GRID_COLUMNS = 4;
+export const INSTAGRAM_GRID_ROWS = 2;
+export const INSTAGRAM_DISPLAY_COUNT = INSTAGRAM_GRID_COLUMNS * INSTAGRAM_GRID_ROWS;
+
 export const INSTAGRAM_SETUP_GUIDE_PATH = "/docs/instagram-setup-guide.md";
 
 export const INSTAGRAM_SETUP_GUIDE_FILENAME = "Isla-Cafe-Instagram-Setup-Guide.md";

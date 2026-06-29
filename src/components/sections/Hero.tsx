@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HeroCanvas } from "@/components/sections/HeroCanvas";
-import { siteImages } from "@/lib/images";
+import { CafeAmbientVideo } from "@/components/ui/CafeAmbientVideo";
+import { GOOGLE_MAPS_PLACE_URL } from "@/lib/contact";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export function Hero() {
@@ -88,13 +89,10 @@ export function Hero() {
       >
         <HeroCanvas />
 
-        <div
+        <CafeAmbientVideo
           id="heroImgA"
-          data-hero-img
-          className="absolute inset-0 z-[1] bg-cover bg-[center_40%] bg-no-repeat will-change-[transform,opacity]"
-          style={{ backgroundImage: `url(${siteImages.hero})` }}
-          role="img"
-          aria-label=""
+          variant="hero"
+          className="absolute inset-0 z-[1] will-change-[transform,opacity]"
         />
 
         <div
@@ -130,8 +128,9 @@ export function Hero() {
                 {t("ctaMenu")}
               </a>
               <a
-                href="#visitanos"
-                data-scroll
+                href={GOOGLE_MAPS_PLACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-cream-light/42 px-6 py-3.5 text-[13px] font-bold tracking-[0.08em] text-cream-light transition-[border-color,color] duration-300 hover:border-gold-light hover:text-gold-light sm:w-auto sm:px-[30px] sm:py-[15px] sm:text-[13.5px]"
               >
                 {t("ctaDirections")}

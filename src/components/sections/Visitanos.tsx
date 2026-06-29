@@ -1,8 +1,6 @@
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-
-const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=18901+SW+106th+Ave+Unit+101+Cutler+Bay+FL+33157";
+import { GOOGLE_MAPS_PLACE_URL } from "@/lib/contact";
 
 export function Visitanos() {
   const t = useTranslations("visitanos");
@@ -40,7 +38,7 @@ export function Visitanos() {
                 {t("orderOnline")}
               </a>
               <a
-                href={DIRECTIONS_URL}
+                href={GOOGLE_MAPS_PLACE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("getDirectionsAria")}

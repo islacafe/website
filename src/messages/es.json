@@ -45,7 +45,9 @@
         "title": "Mesa de barrio",
         "body": "Un sitio para quedarse: vecinos, laptops, dominó y largas sobremesas."
       }
-    ]
+    ],
+    "cta": "Nuestra Historia",
+    "ctaAria": "Conoce la historia de Isla Café en Instagram"
   },
   "menu": {
     "number": "01",
@@ -123,7 +125,9 @@
   "espacio": {
     "number": "03",
     "label": "El espacio",
-    "title": "Luz de la mañana, plantas y el aroma a tostado."
+    "title": "Luz de la mañana, plantas y el aroma a tostado.",
+    "cta": "Aprender más",
+    "ctaAria": "Visitar la sección Visítanos para conocer más sobre Isla Café"
   },
   "instagram": {
     "number": "04",

@@ -91,6 +91,18 @@ export function Historia() {
                 </div>
               ))}
             </div>
+
+            <div data-rv className="mt-10">
+              <a
+                href="https://www.instagram.com/islacafemiami/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("ctaAria")}
+                className="inline-flex items-center justify-center rounded-full border border-cream-light/35 bg-cream-light/8 px-7 py-3.5 text-[13px] font-bold tracking-[0.08em] text-cream-light transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-light hover:bg-cream-light/12 hover:text-gold-light"
+              >
+                {t("cta")}
+              </a>
+            </div>
           </div>
 
           <div className="relative mx-auto min-h-[320px] max-w-[420px] md:mx-0 md:max-w-none md:min-h-[560px]" data-hist-media>

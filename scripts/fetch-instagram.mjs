@@ -22,7 +22,7 @@ const SETUP_GUIDE_SOURCE = path.join(ROOT, "docs", "INSTAGRAM_SETUP.md");
 const SETUP_GUIDE_PUBLIC = path.join(ROOT, "public", "docs", "instagram-setup-guide.md");
 
 const API_VERSION = "v21.0";
-const POST_LIMIT = 16;
+const POST_LIMIT = 8;
 
 async function syncSetupGuide() {
   await mkdir(path.dirname(SETUP_GUIDE_PUBLIC), { recursive: true });

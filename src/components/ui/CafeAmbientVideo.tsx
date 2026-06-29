@@ -9,15 +9,23 @@ const CAFE_VIDEO_POSTER = "/images/footer-bg-poster.jpg";
 
 type CafeAmbientVideoProps = {
   className?: string;
+  variant?: "section" | "hero";
+  id?: string;
 };
 
-export function CafeAmbientVideo({ className = "" }: CafeAmbientVideoProps) {
+export function CafeAmbientVideo({
+  className = "",
+  variant = "section",
+  id,
+}: CafeAmbientVideoProps) {
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(variant === "hero");
 
   useEffect(() => {
+    if (variant === "hero") return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -28,7 +36,7 @@ export function CafeAmbientVideo({ className = "" }: CafeAmbientVideoProps) {
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [variant]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -41,28 +49,30 @@ export function CafeAmbientVideo({ className = "" }: CafeAmbientVideoProps) {
   }, [inView, reducedMotion]);
 
   const showVideo = !reducedMotion && inView;
+  const isHero = variant === "hero";
 
   return (
     <div
       ref={containerRef}
-      data-rv
-      className={`relative overflow-hidden border border-border bg-ink-deep ${className}`}
+      id={id}
+      {...(isHero ? { "data-hero-img": true } : { "data-rv": true })}
+      className={`relative overflow-hidden bg-ink-deep ${isHero ? "" : "border border-border"} ${className}`}
     >
       <SiteImage
         src={CAFE_VIDEO_POSTER}
         alt=""
         fill
-        className="object-cover object-center"
+        className={`object-cover ${isHero ? "object-[center_42%]" : "object-center"}`}
       />
 
       {showVideo && (
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className={`absolute inset-0 h-full w-full object-cover ${isHero ? "object-[center_42%]" : "object-center"}`}
           muted
           loop
           playsInline
-          preload="none"
+          preload={isHero ? "auto" : "none"}
           poster={CAFE_VIDEO_POSTER}
           aria-hidden="true"
         >

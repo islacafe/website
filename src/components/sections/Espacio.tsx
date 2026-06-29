@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
-import { CafeAmbientVideo } from "@/components/ui/CafeAmbientVideo";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { espacioGallery } from "@/lib/images";
 
@@ -19,8 +18,6 @@ export function Espacio() {
           {t("title")}
         </h2>
 
-        <CafeAmbientVideo className="mt-[58px] aspect-[16/9] min-h-[220px] sm:min-h-[280px] lg:min-h-[360px]" />
-
         <div className="mt-[58px] grid auto-rows-[130px] grid-cols-2 gap-3 sm:auto-rows-[160px] sm:gap-[18px] md:auto-rows-[200px] md:grid-cols-4">
           {espacioGallery.map((item, index) => (
             <div
@@ -30,6 +27,17 @@ export function Espacio() {
               <SiteImage src={item.src} alt="" fill />
             </div>
           ))}
+        </div>
+
+        <div data-rv className="mt-11 flex justify-center">
+          <a
+            href="#visitanos"
+            data-scroll
+            aria-label={t("ctaAria")}
+            className="inline-flex items-center gap-2.5 rounded-full border border-border bg-cream-card px-7 py-3.5 text-[13px] font-bold tracking-[0.08em] text-ink transition-[border-color,gap,transform] duration-300 hover:-translate-y-0.5 hover:gap-[15px] hover:border-gold-dark"
+          >
+            {t("cta")}
+          </a>
         </div>
       </div>
     </section>

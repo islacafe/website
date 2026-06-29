@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SiteImage } from "@/components/ui/SiteImage";
-import { INSTAGRAM_PROFILE_URL, instagramFeed } from "@/lib/instagram";
+import { INSTAGRAM_DISPLAY_COUNT, INSTAGRAM_PROFILE_URL, instagramFeed } from "@/lib/instagram";
 
 function InstagramIcon() {
   return (
@@ -22,7 +22,7 @@ function InstagramIcon() {
 
 export function InstagramFeed() {
   const t = useTranslations("instagram");
-  const posts = instagramFeed.posts.slice(0, 16);
+  const posts = instagramFeed.posts.slice(0, INSTAGRAM_DISPLAY_COUNT);
 
   return (
     <section id="instagram" className="bg-cream py-[clamp(90px,11vw,150px)]">
