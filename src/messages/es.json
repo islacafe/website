@@ -55,7 +55,7 @@
     "titleLine1": "Café de especialidad y",
     "titleEmphasis": "brunch",
     "titleLine2": "caribeño.",
-    "viewFull": "Ver carta completa →",
+    "viewFull": "Ver Menú",
     "categories": [
       {
         "key": "cafe",
@@ -211,5 +211,23 @@
     "copyright": "© 2026 ISLA CAFÉ · CUTLER BAY",
     "madeIn": "HECHO CON ☕ EN MIAMI",
     "developedBy": "Desarrollado por"
+  },
+  "innerMeta": {
+    "historia": {
+      "title": "Historia — Isla Café Miami",
+      "description": "La historia de Isla Café: desde la primera colada en Cutler Bay hasta la esquina de barrio que conocemos hoy."
+    },
+    "menu": {
+      "title": "Menú — Isla Café Miami",
+      "description": "Carta completa de café de especialidad, bebidas frías, brunch caribeño y panadería artesanal."
+    },
+    "espacio": {
+      "title": "El Espacio — Isla Café Miami",
+      "description": "Conoce el local de Isla Café: la barra, el salón, la terraza y todo lo que hace especial el espacio."
+    },
+    "visitanos": {
+      "title": "Visítanos — Isla Café Miami",
+      "description": "Dirección, horario, mapa y todo lo que necesitas para visitar Isla Café en Cutler Bay."
+    }
   }
 }

@@ -3,14 +3,9 @@
 import { useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { OrderMenu } from "@/components/ui/OrderMenu";
+import { Link } from "@/i18n/navigation";
+import { innerRoutes, navRouteKeys } from "@/lib/inner-routes";
 import { siteImages } from "@/lib/images";
-
-const footerLinks = [
-  { href: "#menu", key: "menu" as const },
-  { href: "#historia", key: "historia" as const },
-  { href: "#espacio", key: "espacio" as const },
-  { href: "#visitanos", key: "visitanos" as const },
-];
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -50,15 +45,14 @@ export function Footer() {
               {t("explore")}
             </div>
             <div className="flex flex-col gap-[11px] text-[14.5px] text-cream-light/72">
-              {footerLinks.map((link) => (
-                <a
-                  key={link.key}
-                  href={link.href}
-                  data-scroll
+              {navRouteKeys.map((key) => (
+                <Link
+                  key={key}
+                  href={innerRoutes[key]}
                   className="transition-colors duration-300 hover:text-gold-light"
                 >
-                  {nav(link.key)}
-                </a>
+                  {nav(key)}
+                </Link>
               ))}
             </div>
           </div>

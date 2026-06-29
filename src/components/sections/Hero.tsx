@@ -28,24 +28,30 @@ export function Hero() {
         trigger: "#top",
         start: "top top",
         end: "bottom bottom",
-        scrub: 0.4,
+        scrub: 0.25,
+        snap: {
+          snapTo: [0, 0.52, 0.96],
+          duration: { min: 0.12, max: 0.35 },
+          delay: 0.04,
+          ease: "power1.inOut",
+        },
       },
     });
 
-    tl.fromTo("#heroImgA", { scale: 1 }, { scale: 1.14, ease: "none", duration: 1 }, 0)
-      .to("#scrollCue", { opacity: 0, duration: 0.06 }, 0.02)
+    tl.fromTo("#heroImgA", { scale: 1 }, { scale: 1.1, ease: "none", duration: 1 }, 0)
+      .to("#scrollCue", { opacity: 0, duration: 0.04 }, 0.03)
       .to(
         "#heroP1",
-        { yPercent: -16, opacity: 0, filter: "blur(6px)", ease: "power1.in", duration: 0.22 },
-        0.34,
+        { yPercent: -12, opacity: 0, filter: "blur(5px)", ease: "power1.in", duration: 0.1 },
+        0.4,
       )
       .fromTo(
         "#heroP2",
-        { yPercent: 14, opacity: 0 },
-        { yPercent: 0, opacity: 1, ease: "power1.out", duration: 0.2 },
-        0.54,
+        { yPercent: 10, opacity: 0 },
+        { yPercent: 0, opacity: 1, ease: "power1.out", duration: 0.1 },
+        0.48,
       )
-      .to("#heroP2", { yPercent: -10, opacity: 0, ease: "power1.in", duration: 0.18 }, 0.86);
+      .to("#heroP2", { yPercent: -8, opacity: 0, ease: "power1.in", duration: 0.1 }, 0.88);
 
     gsap.killTweensOf("#heroP1 > *");
     gsap.set("#heroP1 > *", { opacity: 1, y: 0 });
@@ -81,7 +87,7 @@ export function Hero() {
     <section
       id="top"
       data-hero
-      className="relative h-[360vh] bg-ink-deep max-md:h-[240vh]"
+      className={`relative bg-ink-deep ${reducedMotion ? "h-[100svh]" : "h-[200vh] max-md:h-[160vh]"}`}
     >
       <div
         data-hero-stage
@@ -96,7 +102,7 @@ export function Hero() {
         {!reducedMotion && <HeroCanvas overlayOnly />}
 
         <div
-          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.58)] via-[rgba(28,22,15,0.28)] to-[rgba(28,22,15,0.68)] max-md:from-[rgba(28,22,15,0.62)] max-md:via-[rgba(28,22,15,0.32)]"
+          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.72)] via-[rgba(28,22,15,0.42)] to-[rgba(28,22,15,0.78)] max-md:from-[rgba(28,22,15,0.76)] max-md:via-[rgba(28,22,15,0.48)]"
           aria-hidden
         />
 
@@ -105,18 +111,18 @@ export function Hero() {
             id="heroP1"
             className="col-start-1 row-start-1 max-w-[1000px] will-change-[transform,opacity]"
           >
-            <div className="mb-5 flex items-center justify-center gap-2.5 text-[10px] font-extrabold tracking-[0.24em] text-gold-muted uppercase sm:mb-[26px] sm:gap-4 sm:text-xs sm:tracking-[0.42em] [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]">
+            <div className="mb-5 flex items-center justify-center gap-2.5 text-[10px] font-extrabold tracking-[0.24em] text-gold-muted uppercase sm:mb-[26px] sm:gap-4 sm:text-xs sm:tracking-[0.42em] [text-shadow:0_2px_24px_rgba(0,0,0,0.65)]">
               <span className="hidden h-px w-8 bg-gradient-to-r from-transparent to-gold sm:block sm:w-11" />
               {t("location")}
               <span className="hidden h-px w-8 bg-gradient-to-l from-transparent to-gold sm:block sm:w-11" />
             </div>
-            <h1 className="font-serif text-[clamp(34px,9.5vw,108px)] leading-[1.06] font-semibold text-balance text-cream-light sm:text-[clamp(46px,7.6vw,108px)] sm:leading-[1.05] [text-shadow:0_3px_32px_rgba(0,0,0,0.55),0_1px_6px_rgba(0,0,0,0.4)]">
+            <h1 className="font-serif text-[clamp(40px,11vw,124px)] leading-[1.04] font-semibold text-balance text-cream-light sm:text-[clamp(54px,8.8vw,132px)] sm:leading-[1.03] [text-shadow:0_4px_40px_rgba(0,0,0,0.7),0_2px_10px_rgba(0,0,0,0.55)]">
               {t("titleLine1")}
               <br />
               <em className="text-gold-light italic">{t("titleEmphasis")}</em>{" "}
               {t("titleLine2")}
             </h1>
-            <p className="mt-4 max-w-[34ch] mx-auto text-[15px] leading-[1.55] tracking-[0.01em] text-cream-light/88 sm:mt-6 sm:max-w-none sm:text-[clamp(16px,1.6vw,21px)] sm:text-cream-light/82 [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]">
+            <p className="mt-4 max-w-[34ch] mx-auto text-[15px] leading-[1.55] tracking-[0.01em] text-cream-light/92 sm:mt-6 sm:max-w-none sm:text-[clamp(16px,1.6vw,21px)] sm:text-cream-light/88 [text-shadow:0_2px_28px_rgba(0,0,0,0.65)]">
               {t("subtitle")}
             </p>
             <div className="mt-8 flex w-full max-w-[320px] mx-auto flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
@@ -142,7 +148,7 @@ export function Hero() {
             id="heroP2"
             className="col-start-1 row-start-1 max-w-[1000px] opacity-0 will-change-[transform,opacity]"
           >
-            <h2 className="font-serif text-[clamp(38px,5.8vw,84px)] leading-[1.1] font-medium text-balance text-cream-light italic [text-shadow:0_3px_32px_rgba(0,0,0,0.55),0_1px_6px_rgba(0,0,0,0.4)]">
+            <h2 className="font-serif text-[clamp(42px,6.2vw,92px)] leading-[1.1] font-medium text-balance text-cream-light italic [text-shadow:0_4px_40px_rgba(0,0,0,0.7),0_2px_10px_rgba(0,0,0,0.55)]">
               {t("quote").split("\n").map((line, i) => (
                 <span key={i}>
                   {line}

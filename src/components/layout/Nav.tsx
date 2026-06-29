@@ -7,28 +7,36 @@ import { OrderMenu } from "@/components/ui/OrderMenu";
 import { Link, usePathname } from "@/i18n/navigation";
 import { orderPlatforms } from "@/lib/order";
 import { siteImages } from "@/lib/images";
+import { innerRoutes, navRouteKeys, type InnerRouteKey } from "@/lib/inner-routes";
 
-const navLinks = [
-  { href: "#menu", key: "menu" as const },
-  { href: "#historia", key: "historia" as const },
-  { href: "#espacio", key: "espacio" as const },
-  { href: "#visitanos", key: "visitanos" as const },
-];
+type NavProps = {
+  variant?: "home" | "inner";
+  activePage?: InnerRouteKey;
+};
 
-export function Nav() {
+export function Nav({ variant = "home", activePage }: NavProps) {
   const t = useTranslations("nav");
   const order = useTranslations("order");
   const locale = useLocale();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(variant === "inner");
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isInner = variant === "inner";
+  const showSolidNav = isInner || scrolled;
+  const showOrderCta = activePage === "menu" || activePage === "visitanos";
+
   useEffect(() => {
+    if (isInner) {
+      setScrolled(true);
+      return;
+    }
+
     const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isInner]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -37,18 +45,16 @@ export function Nav() {
     };
   }, [mobileOpen]);
 
-  const navClass = scrolled
+  const navClass = showSolidNav
     ? "h-[66px] border-b border-ink/8 bg-cream/88 shadow-[0_8px_32px_rgba(43,36,29,0.07)] backdrop-blur-[18px] backdrop-saturate-[1.4]"
     : "h-[72px] border-b border-transparent bg-transparent shadow-none max-lg:h-[72px] lg:h-[88px]";
 
-  const mobileDrawerTop = scrolled ? "top-[66px]" : "top-[72px] lg:top-[88px]";
+  const mobileDrawerTop = showSolidNav ? "top-[66px]" : "top-[72px] lg:top-[88px]";
 
-  const linkClass = scrolled
-    ? "text-ink"
-    : "text-white/85 hover:text-white";
+  const linkClass = showSolidNav ? "text-ink" : "text-white/85 hover:text-white";
 
-  const langBorder = scrolled ? "border-ink/15" : "border-white/35";
-  const inactiveLang = scrolled ? "text-ink/70" : "text-white/70";
+  const langBorder = showSolidNav ? "border-ink/15" : "border-white/35";
+  const inactiveLang = showSolidNav ? "text-ink/70" : "text-white/70";
 
   return (
     <>
@@ -61,22 +67,30 @@ export function Nav() {
             src={siteImages.logo}
             alt="Isla Café"
             priority
-            className={`rounded-full object-cover transition-[width,height] duration-[450ms] ${scrolled ? "h-10 w-10 lg:h-11 lg:w-11" : "h-11 w-11 lg:h-[54px] lg:w-[54px]"}`}
+            className={`rounded-full object-cover transition-[width,height] duration-[450ms] ${showSolidNav ? "h-10 w-10 lg:h-11 lg:w-11" : "h-11 w-11 lg:h-[54px] lg:w-[54px]"}`}
           />
         </Link>
 
         <div className="hidden items-center gap-[30px] lg:flex" data-nav-links>
-          {navLinks.map((link) => (
-            <a
-              key={link.key}
-              href={link.href}
-              data-scroll
-              data-navlink
-              className={`px-0 py-1.5 text-[13px] font-semibold tracking-[0.06em] transition-colors duration-300 ${linkClass}`}
-            >
-              {t(link.key)}
-            </a>
-          ))}
+          {navRouteKeys.map((key) => {
+            const href = innerRoutes[key];
+            const isActive = activePage === key || pathname === href;
+
+            return (
+              <Link
+                key={key}
+                href={href}
+                data-navlink
+                className={`px-0 py-1.5 text-[13px] tracking-[0.06em] transition-colors duration-300 ${
+                  isActive
+                    ? "border-b-[1.5px] border-gold-dark pb-1 font-bold text-gold-dark"
+                    : `font-semibold ${linkClass} hover:text-gold-dark`
+                }`}
+              >
+                {t(key)}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-4">
@@ -88,9 +102,7 @@ export function Nav() {
               href={pathname}
               locale="es"
               className={`px-[13px] py-[7px] font-sans text-[11px] font-extrabold tracking-[0.1em] transition-colors ${
-                locale === "es"
-                  ? "bg-ink text-cream"
-                  : `bg-transparent ${inactiveLang}`
+                locale === "es" ? "bg-ink text-cream" : `bg-transparent ${inactiveLang}`
               }`}
             >
               ES
@@ -99,32 +111,43 @@ export function Nav() {
               href={pathname}
               locale="en"
               className={`px-[13px] py-[7px] font-sans text-[11px] font-extrabold tracking-[0.1em] transition-colors ${
-                locale === "en"
-                  ? "bg-ink text-cream"
-                  : `bg-transparent ${inactiveLang}`
+                locale === "en" ? "bg-ink text-cream" : `bg-transparent ${inactiveLang}`
               }`}
             >
               EN
             </Link>
           </div>
 
-          <OrderMenu variant="nav" scrolled={scrolled} />
+          {showOrderCta ? (
+            <OrderMenu variant="nav" scrolled={showSolidNav} />
+          ) : (
+            <Link
+              href={innerRoutes.visitanos}
+              className={`hidden items-center rounded-full px-[22px] py-[11px] text-[12.5px] font-bold tracking-[0.08em] transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 lg:inline-flex ${
+                showSolidNav
+                  ? "bg-ink text-cream shadow-[0_10px_26px_rgba(43,36,29,0.28)] hover:bg-ink-warm"
+                  : "bg-cream/95 text-ink shadow-[0_10px_26px_rgba(0,0,0,0.18)] hover:bg-cream"
+              }`}
+            >
+              {t("visitanos")}
+            </Link>
+          )}
 
           <button
             type="button"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className={`flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full border lg:hidden ${scrolled ? "border-ink/15 bg-cream/90" : "border-white/35 bg-ink-deep/20 backdrop-blur-sm"}`}
+            className={`flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full border lg:hidden ${showSolidNav ? "border-ink/15 bg-cream/90" : "border-white/35 bg-ink-deep/20 backdrop-blur-sm"}`}
           >
             <span
-              className={`block h-0.5 w-5 transition-transform ${scrolled ? "bg-ink" : "bg-white"} ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
+              className={`block h-0.5 w-5 transition-transform ${showSolidNav ? "bg-ink" : "bg-white"} ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
             />
             <span
-              className={`block h-0.5 w-5 transition-opacity ${scrolled ? "bg-ink" : "bg-white"} ${mobileOpen ? "opacity-0" : ""}`}
+              className={`block h-0.5 w-5 transition-opacity ${showSolidNav ? "bg-ink" : "bg-white"} ${mobileOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block h-0.5 w-5 transition-transform ${scrolled ? "bg-ink" : "bg-white"} ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
+              className={`block h-0.5 w-5 transition-transform ${showSolidNav ? "bg-ink" : "bg-white"} ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
             />
           </button>
         </div>
@@ -140,16 +163,17 @@ export function Nav() {
             className={`fixed inset-x-0 ${mobileDrawerTop} z-[95] max-h-[calc(100svh-72px)] overflow-y-auto border-b border-ink/8 bg-cream/98 px-5 py-5 backdrop-blur-xl lg:hidden`}
           >
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.key}
-                  href={link.href}
-                  data-scroll
+              {navRouteKeys.map((key) => (
+                <Link
+                  key={key}
+                  href={innerRoutes[key]}
                   onClick={() => setMobileOpen(false)}
-                  className="text-[15px] font-semibold tracking-[0.06em] text-ink"
+                  className={`text-[15px] tracking-[0.06em] ${
+                    activePage === key ? "font-bold text-gold-dark" : "font-semibold text-ink"
+                  }`}
                 >
-                  {t(link.key)}
-                </a>
+                  {t(key)}
+                </Link>
               ))}
               <div className="inline-flex w-fit overflow-hidden rounded-full border border-ink/15">
                 <Link

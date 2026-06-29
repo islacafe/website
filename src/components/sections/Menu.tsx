@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Link } from "@/i18n/navigation";
+import { innerRoutes } from "@/lib/inner-routes";
 import { menuCategoryImages } from "@/lib/images";
 
 type MenuCategory = {
@@ -68,13 +70,12 @@ export function Menu() {
         </div>
 
         <div data-rv className="mt-11 flex justify-center">
-          <a
-            href="#visitanos"
-            data-scroll
+          <Link
+            href={innerRoutes.menu}
             className="inline-flex items-center gap-2.5 rounded-full border border-border bg-cream-card px-7 py-3.5 text-[13px] font-bold tracking-[0.08em] text-ink transition-[border-color,gap] duration-300 hover:gap-[15px] hover:border-gold-dark"
           >
             {t("viewFull")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>
