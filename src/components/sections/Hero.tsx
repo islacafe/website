@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CafeAmbientVideo } from "@/components/ui/CafeAmbientVideo";
+import { HeroCanvas } from "@/components/sections/HeroCanvas";
 import { GOOGLE_MAPS_PLACE_URL } from "@/lib/contact";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -92,8 +93,10 @@ export function Hero() {
           className="will-change-transform"
         />
 
+        {!reducedMotion && <HeroCanvas overlayOnly />}
+
         <div
-          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.48)] via-[rgba(28,22,15,0.12)] to-[rgba(28,22,15,0.58)] max-md:from-[rgba(28,22,15,0.52)] max-md:via-[rgba(28,22,15,0.16)]"
+          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-[rgba(28,22,15,0.58)] via-[rgba(28,22,15,0.28)] to-[rgba(28,22,15,0.68)] max-md:from-[rgba(28,22,15,0.62)] max-md:via-[rgba(28,22,15,0.32)]"
           aria-hidden
         />
 
@@ -102,18 +105,18 @@ export function Hero() {
             id="heroP1"
             className="col-start-1 row-start-1 max-w-[1000px] will-change-[transform,opacity]"
           >
-            <div className="mb-5 flex items-center justify-center gap-2.5 text-[10px] font-extrabold tracking-[0.24em] text-gold-muted uppercase sm:mb-[26px] sm:gap-4 sm:text-xs sm:tracking-[0.42em]">
+            <div className="mb-5 flex items-center justify-center gap-2.5 text-[10px] font-extrabold tracking-[0.24em] text-gold-muted uppercase sm:mb-[26px] sm:gap-4 sm:text-xs sm:tracking-[0.42em] [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]">
               <span className="hidden h-px w-8 bg-gradient-to-r from-transparent to-gold sm:block sm:w-11" />
               {t("location")}
               <span className="hidden h-px w-8 bg-gradient-to-l from-transparent to-gold sm:block sm:w-11" />
             </div>
-            <h1 className="font-serif text-[clamp(34px,9.5vw,108px)] leading-[1.06] font-semibold text-balance text-cream-light sm:text-[clamp(46px,7.6vw,108px)] sm:leading-[1.05]">
+            <h1 className="font-serif text-[clamp(34px,9.5vw,108px)] leading-[1.06] font-semibold text-balance text-cream-light sm:text-[clamp(46px,7.6vw,108px)] sm:leading-[1.05] [text-shadow:0_3px_32px_rgba(0,0,0,0.55),0_1px_6px_rgba(0,0,0,0.4)]">
               {t("titleLine1")}
               <br />
               <em className="text-gold-light italic">{t("titleEmphasis")}</em>{" "}
               {t("titleLine2")}
             </h1>
-            <p className="mt-4 max-w-[34ch] mx-auto text-[15px] leading-[1.55] tracking-[0.01em] text-cream-light/88 sm:mt-6 sm:max-w-none sm:text-[clamp(16px,1.6vw,21px)] sm:text-cream-light/82">
+            <p className="mt-4 max-w-[34ch] mx-auto text-[15px] leading-[1.55] tracking-[0.01em] text-cream-light/88 sm:mt-6 sm:max-w-none sm:text-[clamp(16px,1.6vw,21px)] sm:text-cream-light/82 [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]">
               {t("subtitle")}
             </p>
             <div className="mt-8 flex w-full max-w-[320px] mx-auto flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
@@ -139,7 +142,7 @@ export function Hero() {
             id="heroP2"
             className="col-start-1 row-start-1 max-w-[1000px] opacity-0 will-change-[transform,opacity]"
           >
-            <h2 className="font-serif text-[clamp(38px,5.8vw,84px)] leading-[1.1] font-medium text-balance text-cream-light italic">
+            <h2 className="font-serif text-[clamp(38px,5.8vw,84px)] leading-[1.1] font-medium text-balance text-cream-light italic [text-shadow:0_3px_32px_rgba(0,0,0,0.55),0_1px_6px_rgba(0,0,0,0.4)]">
               {t("quote").split("\n").map((line, i) => (
                 <span key={i}>
                   {line}
