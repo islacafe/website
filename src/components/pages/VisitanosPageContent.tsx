@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
 import { InnerPageHeader } from "@/components/inner/InnerPageHeader";
 import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
@@ -29,9 +29,6 @@ function getOpenStatus(locale: string) {
 export function VisitanosPageContent() {
   const locale = useLocale();
   const [openStatus, setOpenStatus] = useState(() => getOpenStatus(locale));
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [emailError, setEmailError] = useState(false);
 
   useEffect(() => {
     setOpenStatus(getOpenStatus(locale));
@@ -128,17 +125,6 @@ export function VisitanosPageContent() {
             a: "Sí. Pide online y recoge en la barra, o pásate y te lo servimos al momento. También entregamos a domicilio en Cutler Bay.",
           },
         ];
-
-  const onSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    if (!/.+@.+\..+/.test(email.trim())) {
-      setEmailError(true);
-      return;
-    }
-    setEmailError(false);
-    setSubmitted(true);
-    setEmail("");
-  };
 
   return (
     <>
@@ -284,50 +270,6 @@ export function VisitanosPageContent() {
               </details>
             ))}
             <div className="border-t border-border" />
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="pedir"
-        className="bg-gradient-to-b from-cream to-border-warm py-[clamp(70px,9vw,120px)]"
-      >
-        <div className="mx-auto max-w-[1240px] px-[clamp(20px,5vw,64px)]">
-          <div className="grid items-center gap-10 border border-forest bg-forest p-[clamp(28px,5vw,48px)] text-cream-light lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <h3 className="font-serif text-[clamp(28px,4vw,44px)] leading-[1.1] font-semibold">
-                {pickLocalized(locale, {
-                  es: "Recibe el especial de la semana.",
-                  en: "Get the special of the week.",
-                })}
-              </h3>
-              <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.65] text-cream-light/74">
-                {pickLocalized(locale, {
-                  es: "Nuevos tostados, brunch de temporada y noches de música — sin spam, solo lo bueno.",
-                  en: "New roasts, seasonal brunch, and music nights — no spam, just the good stuff.",
-                })}
-              </p>
-            </div>
-            <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder={pickLocalized(locale, {
-                  es: "tu@correo.com",
-                  en: "you@email.com",
-                })}
-                className={`min-w-0 flex-1 border bg-cream-light/95 px-4 py-3.5 text-[15px] text-ink outline-none transition-colors ${emailError ? "border-gold-light" : "border-transparent"}`}
-              />
-              <button
-                type="submit"
-                className={`shrink-0 rounded-full px-7 py-3.5 text-[13px] font-bold tracking-[0.08em] transition-colors ${submitted ? "bg-gold-pale text-ink" : "bg-gold-light text-ink-warm hover:bg-gold"}`}
-              >
-                {submitted
-                  ? pickLocalized(locale, { es: "¡Gracias! ☕", en: "Thank you! ☕" })
-                  : pickLocalized(locale, { es: "Suscribirme", en: "Subscribe" })}
-              </button>
-            </form>
           </div>
         </div>
       </section>

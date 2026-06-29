@@ -24,7 +24,6 @@ export function Nav({ variant = "home", activePage }: NavProps) {
 
   const isInner = variant === "inner";
   const showSolidNav = isInner || scrolled;
-  const showOrderCta = activePage === "menu" || activePage === "visitanos";
 
   useEffect(() => {
     if (isInner) {
@@ -74,7 +73,8 @@ export function Nav({ variant = "home", activePage }: NavProps) {
         <div className="hidden items-center gap-[30px] lg:flex" data-nav-links>
           {navRouteKeys.map((key) => {
             const href = innerRoutes[key];
-            const isActive = activePage === key || pathname === href;
+            const isActive =
+              key === "home" ? pathname === "/" : activePage === key || pathname === href;
 
             return (
               <Link
@@ -118,20 +118,7 @@ export function Nav({ variant = "home", activePage }: NavProps) {
             </Link>
           </div>
 
-          {showOrderCta ? (
-            <OrderMenu variant="nav" scrolled={showSolidNav} />
-          ) : (
-            <Link
-              href={innerRoutes.visitanos}
-              className={`hidden items-center rounded-full px-[22px] py-[11px] text-[12.5px] font-bold tracking-[0.08em] transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 lg:inline-flex ${
-                showSolidNav
-                  ? "bg-ink text-cream shadow-[0_10px_26px_rgba(43,36,29,0.28)] hover:bg-ink-warm"
-                  : "bg-cream/95 text-ink shadow-[0_10px_26px_rgba(0,0,0,0.18)] hover:bg-cream"
-              }`}
-            >
-              {t("visitanos")}
-            </Link>
-          )}
+          <OrderMenu variant="nav" scrolled={showSolidNav} />
 
           <button
             type="button"
@@ -169,7 +156,9 @@ export function Nav({ variant = "home", activePage }: NavProps) {
                   href={innerRoutes[key]}
                   onClick={() => setMobileOpen(false)}
                   className={`text-[15px] tracking-[0.06em] ${
-                    activePage === key ? "font-bold text-gold-dark" : "font-semibold text-ink"
+                    (key === "home" ? pathname === "/" : activePage === key)
+                      ? "font-bold text-gold-dark"
+                      : "font-semibold text-ink"
                   }`}
                 >
                   {t(key)}

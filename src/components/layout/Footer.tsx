@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
+import { CoffeeCupIcon } from "@/components/ui/CoffeeCupIcon";
 import { OrderMenu } from "@/components/ui/OrderMenu";
 import { Link } from "@/i18n/navigation";
 import { innerRoutes, navRouteKeys } from "@/lib/inner-routes";
@@ -90,7 +91,11 @@ export function Footer() {
         <div className="mt-[54px] border-t border-cream-light/12 pt-6">
           <div className="flex flex-wrap justify-between gap-4 font-mono text-[11px] tracking-[0.1em] text-cream-light/45">
             <span>{t("copyright")}</span>
-            <span>{t("madeIn")}</span>
+            <span className="inline-flex items-center gap-1.5">
+              {t("madeInBefore")}
+              <CoffeeCupIcon className="h-[1.05em] w-[1.05em] shrink-0 text-gold-muted" />
+              {t("madeInAfter")}
+            </span>
           </div>
           <p className="mt-3 text-center text-[11px] tracking-[0.06em] text-cream-light/40">
             {t("developedBy")}{" "}

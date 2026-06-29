@@ -6,9 +6,11 @@ export const innerRoutes = {
   visitanos: "/visitanos",
 } as const;
 
-export type InnerRouteKey = keyof Omit<typeof innerRoutes, "home">;
+export type NavRouteKey = keyof typeof innerRoutes;
+export type InnerRouteKey = Exclude<NavRouteKey, "home">;
 
-export const navRouteKeys: InnerRouteKey[] = [
+export const navRouteKeys: NavRouteKey[] = [
+  "home",
   "historia",
   "menu",
   "espacio",

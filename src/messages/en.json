@@ -4,6 +4,7 @@
     "description": "Specialty coffee, Caribbean brunch, and neighborhood warmth in Cutler Bay, Miami."
   },
   "nav": {
+    "home": "Home",
     "historia": "Our Story",
     "menu": "Menu",
     "espacio": "The Space",
@@ -209,7 +210,8 @@
     "facebook": "Facebook",
     "tiktok": "TikTok",
     "copyright": "© 2026 ISLA CAFÉ · CUTLER BAY",
-    "madeIn": "MADE WITH ☕ IN MIAMI",
+    "madeInBefore": "MADE WITH",
+    "madeInAfter": "IN MIAMI",
     "developedBy": "Developed by"
   },
   "innerMeta": {
