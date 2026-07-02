@@ -44,15 +44,15 @@ export function VisitanosPageContent() {
   const hours = [
     {
       label: pickLocalized(locale, { es: "Lunes – Viernes", en: "Monday – Friday" }),
-      time: "7:00 – 19:00",
+      time: "7:00 – 18:00",
     },
     {
       label: pickLocalized(locale, { es: "Sábado", en: "Saturday" }),
-      time: "8:00 – 20:00",
+      time: "8:00 – 18:00",
     },
     {
       label: pickLocalized(locale, { es: "Domingo", en: "Sunday" }),
-      time: "8:00 – 20:00",
+      time: "9:00 – 15:00",
     },
     {
       label: pickLocalized(locale, { es: "Brunch", en: "Brunch" }),

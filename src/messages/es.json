@@ -160,7 +160,7 @@
     "addressLabel": "Dirección",
     "address": "18901 SW 106th Ave, Unit 101\nCutler Bay, FL 33157",
     "hoursLabel": "Horario",
-    "hours": "Lun–Vie · 7:00 – 19:00\nSáb–Dom · 8:00 – 20:00",
+    "hours": "Lun–Vie · 7:00 – 18:00\nSáb · 8:00 – 18:00\nDom · 9:00 – 15:00",
     "contactLabel": "Contacto",
     "contact": "(305) 555-0147",
     "orderOnline": "Ordenar online",
@@ -173,8 +173,8 @@
     "label": "Preguntas",
     "items": [
       {
-        "question": "¿Aceptan grupos o reservas?",
-        "answer": "Claro. Para grupos de 6+ recomendamos reservar. Escríbenos por DM o llama y te guardamos la mesa grande junto a la ventana."
+        "question": "¿Cuál es su horario?",
+        "answer": "Abrimos de lunes a viernes de 7:00 AM a 6:00 PM, sábados de 8:00 AM a 6:00 PM y domingos de 9:00 AM a 3:00 PM. En días festivos el horario puede variar — confírmalo en nuestro Instagram."
       },
       {
         "question": "¿Tienen opciones veganas y sin gluten?",

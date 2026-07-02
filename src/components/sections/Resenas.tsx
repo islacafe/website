@@ -154,7 +154,7 @@ export function Resenas() {
               {reviews.map((review, index) => (
                 <article
                   key={review.id}
-                  className="flex min-w-[min(360px,82vw)] flex-none snap-start flex-col gap-3.5 border border-cream-light/12 bg-cream-light/5 p-[26px]"
+                  className="flex w-[85vw] flex-none snap-start flex-col gap-3.5 border border-cream-light/12 bg-cream-light/5 p-[26px] sm:w-[calc(50%-9px)]"
                 >
                   <div className="flex items-center gap-3">
                     <div
