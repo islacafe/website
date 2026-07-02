@@ -19,10 +19,11 @@ SLOTS: list[tuple[str, str, int, int]] = [
     ("IMG_0785.HEIC", "hero.jpeg", 1376, 768),
     ("IMG_0766.HEIC", "barra.jpeg", 1200, 896),
     ("IMG_0780.HEIC", "mesa-al-sol.jpeg", 1200, 896),
-    ("IMG_0779.HEIC", "plantas.jpeg", 1200, 896),
+    ("IMG_2817.HEIC", "plantas.jpeg", 1200, 896),
     ("IMG_0784.HEIC", "barista-pour.jpeg", 896, 1200),
     ("IMG_2822.HEIC", "pastelitos-historia.jpeg", 1024, 1024),
     ("IMG_2819.HEIC", "cafe-con-leche.jpeg", 1264, 848),
+    ("IMG_0768.heic", "pour-over.jpeg", 1200, 896),
 ]
 
 

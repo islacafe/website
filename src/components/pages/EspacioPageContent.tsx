@@ -16,7 +16,7 @@ const galleryTiles = [
   { src: siteImages.salon, className: "col-span-2 row-span-2" },
   { src: siteImages.barra, className: "" },
   { src: siteImages.plantas, className: "" },
-  { src: siteImages.baristaPour, className: "col-span-2" },
+  { src: siteImages.pastelitosHistoria, className: "col-span-2" },
   { src: siteImages.mesaAlSol, className: "" },
   { src: siteImages.pourOver, className: "" },
 ];
@@ -38,23 +38,23 @@ export function EspacioPageContent() {
         es: "Asiento de primera fila al espresso. Siéntate, charla con el barista y míralo todo de cerca.",
         en: "Front-row seating to the espresso bar. Sit down, chat with the barista, and watch it all up close.",
       }),
-      image: siteImages.barra,
+      image: siteImages.salon,
     },
     {
       num: "02",
+      title: pickLocalized(locale, { es: "Estación de café", en: "Coffee Station" }),
+      body: pickLocalized(locale, {
+        es: "Máquina Sanremo, molino de precisión y cada taza preparada al momento. Aquí nace tu cortadito.",
+        en: "Sanremo machine, precision grinder, and every cup pulled to order. This is where your cortadito begins.",
+      }),
+      image: siteImages.barra,
+    },
+    {
+      num: "03",
       title: pickLocalized(locale, { es: "El salón", en: "The dining room" }),
       body: pickLocalized(locale, {
         es: "Mesas que se juntan para grupos y butacas para quedarse. La mesa grande junto a la ventana es la favorita.",
         en: "Tables that come together for groups and armchairs made for lingering. The big window table is the favorite.",
-      }),
-      image: siteImages.salon,
-    },
-    {
-      num: "03",
-      title: pickLocalized(locale, { es: "La terraza", en: "The terrace" }),
-      body: pickLocalized(locale, {
-        es: "Mesitas al sol para el primer café del día, el periódico y, si vienes con perro, su cuenco de agua.",
-        en: "Sunny tables for the first coffee of the day, the paper, and — if you bring your dog — a water bowl.",
       }),
       image: siteImages.mesaAlSol,
     },

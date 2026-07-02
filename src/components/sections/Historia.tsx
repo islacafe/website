@@ -116,7 +116,7 @@ export function Historia() {
               data-plx="-12"
               className="absolute bottom-0 left-0 aspect-square w-[54%] overflow-hidden border border-cream-light/18 shadow-[0_30px_60px_rgba(0,0,0,0.3)] will-change-transform"
             >
-              <SiteImage src={siteImages.pastelitosHistoria} alt="" fill />
+              <SiteImage src={siteImages.cafeConLeche} alt="" fill />
             </div>
           </div>
         </div>
