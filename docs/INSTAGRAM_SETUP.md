@@ -1,6 +1,18 @@
 # Instagram feed setup (client handoff)
 
-The homepage Instagram grid pulls the latest 16 posts from [@islacafemiami](https://www.instagram.com/islacafemiami/) at build time via the [Instagram Graph API](https://developers.facebook.com/docs/instagram-api).
+The homepage Instagram grid pulls the latest 8 posts from [@islacafemiami](https://www.instagram.com/islacafemiami/) at build time via the [Instagram Graph API](https://developers.facebook.com/docs/instagram-api).
+
+## Current account values (Isla Café Miami)
+
+These are the live, verified IDs for this account. Use them exactly — mistyping a single digit causes error 100 / subcode 33.
+
+| Item | Value |
+|------|-------|
+| Facebook Page ID | `1113476308525330` |
+| Instagram Business Account ID (`INSTAGRAM_USER_ID`) | `17841463309804205` |
+| Token source | Business Manager **system user** `islacafe` (role: Employee is fine) |
+
+> The Instagram Business Account ID — **not** the Page ID — is what goes in `INSTAGRAM_USER_ID` and is used for the `/media` endpoint.
 
 **Download:** On the live site, use **Download setup guide** in the Instagram section (shown until the feed is connected), or open `/docs/instagram-setup-guide.md` on your deployed domain.
 
@@ -23,35 +35,39 @@ The homepage Instagram grid pulls the latest 16 posts from [@islacafemiami](http
 2. Add the **Instagram Graph API** product
 3. Under App roles, add the restaurant Page admin as **Developer** or **Admin** (or have them create the app under their Business Manager)
 
-## Step 3 — Generate a Page access token
+## Step 3 — Generate a token (system user — recommended)
 
-1. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
-2. Select your app
-3. Add permissions: `instagram_basic`, `pages_read_engagement`, `pages_show_list`
-4. Generate a User access token and approve access to the restaurant Facebook Page
-5. Exchange for a long-lived user token:
-   ```bash
-   curl "https://graph.facebook.com/v21.0/oauth/access_token?grant_type=fb_exchange_token&client_id=APP_ID&client_secret=APP_SECRET&fb_exchange_token=SHORT_LIVED_TOKEN"
-   ```
-6. Get the Page access token:
-   ```bash
-   curl "https://graph.facebook.com/v21.0/me/accounts?access_token=LONG_LIVED_USER_TOKEN"
-   ```
-   Use the `access_token` from the Page object in the response — this is your `INSTAGRAM_ACCESS_TOKEN`.
+The most reliable method is a Business Manager **system user** token. It never expires and avoids the `Invalid Scopes: pages_show_list` bug in Graph API Explorer.
 
-## Step 4 — Get the Instagram Business Account ID
+1. Go to [business.facebook.com](https://business.facebook.com) → **Settings → Business settings**
+2. **Users → System users** → open (or create) a system user — **Employee** role is sufficient
+3. Click **Assign assets → Pages → Isla Cafe Miami → Full control → Save**
+   - This is mandatory. Without the Page assigned, every call fails with error 100 / subcode 33.
+4. Click **Generate new token**:
+   - **App:** your Meta app
+   - **Expiration:** `Never`
+   - **Permissions:** `instagram_basic` and `pages_read_engagement` only
+5. Copy the token — this is your `INSTAGRAM_ACCESS_TOKEN`.
 
-```bash
-curl "https://graph.facebook.com/v21.0/me/accounts?fields=instagram_business_account&access_token=PAGE_ACCESS_TOKEN"
-```
+> Do **not** add `pages_show_list`. New apps don't support it and it breaks the Explorer OAuth flow. You already know the Page/Instagram IDs, so it isn't needed.
 
-Copy the numeric `instagram_business_account.id` — this is your `INSTAGRAM_USER_ID`.
+## Step 4 — Confirm the Instagram Business Account ID
 
-Verify the feed endpoint:
+With the system-user token, confirm the linked Instagram account:
 
 ```bash
-curl "https://graph.facebook.com/v21.0/INSTAGRAM_USER_ID/media?fields=id,permalink&limit=16&access_token=PAGE_ACCESS_TOKEN"
+curl "https://graph.facebook.com/v21.0/1113476308525330?fields=name,instagram_business_account&access_token=SYSTEM_USER_TOKEN"
 ```
+
+The `instagram_business_account.id` is your `INSTAGRAM_USER_ID` (currently `17841463309804205`).
+
+Verify the feed endpoint (use the **Instagram** ID, not the Page ID):
+
+```bash
+curl "https://graph.facebook.com/v21.0/17841463309804205/media?fields=id,permalink&limit=8&access_token=SYSTEM_USER_TOKEN"
+```
+
+A `data` array of posts means it's working.
 
 ## Step 5 — Cloudflare Pages environment variables
 
@@ -78,19 +94,24 @@ Manual refresh: GitHub → **Actions → Refresh Instagram feed → Run workflow
 
 ## Local testing
 
+Pass the values inline so the fetch script picks them up (plain `node` does not read `.env.local`):
+
 ```bash
-cp .env.example .env.local
-# Fill INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID
-npm run build
+INSTAGRAM_ACCESS_TOKEN="EAA..." INSTAGRAM_USER_ID="17841463309804205" \
+  node scripts/fetch-instagram.mjs
 ```
+
+This refreshes `src/data/instagram-posts.json` and re-downloads images into `public/images/instagram/`. Commit those changes to update the live feed even without a rebuild trigger.
 
 ## Troubleshooting
 
 | Symptom | Likely cause |
 |---------|----------------|
 | Empty grid after deploy | Env vars missing or wrong on Cloudflare |
-| API error 190 | Token expired or revoked — regenerate Page token |
-| API error 100 / permissions | App missing `instagram_basic` or not approved |
+| API error 190 | Token expired/revoked, or copied with spaces — regenerate and copy the full string |
+| API error 100 / subcode 33 (`does not exist`) | Wrong ID (check digit count), or the Page is not assigned to the system user |
+| API error 10 (`Application does not have permission`) | Called `PAGE_ID/media` instead of `INSTAGRAM_USER_ID/media`, or missing scopes |
+| `Invalid Scopes: pages_show_list` in Explorer | Remove that scope; use the system-user method in Step 3 |
 | Feed stopped updating | Deploy hook secret missing or Meta app disconnected |
 | Posts stale | Wait for daily cron or run workflow manually |
 
