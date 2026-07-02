@@ -60,9 +60,15 @@ export function Menu() {
                           {pickLocalized(locale, item.desc)}
                         </p>
                       </div>
-                      <span className="font-mono text-[13px] text-muted">
-                        ${item.price}
-                      </span>
+                      {item.size ? (
+                        <span className="font-mono text-[13px] text-gold-dark">
+                          {item.size}
+                        </span>
+                      ) : (
+                        <span className="font-mono text-[13px] text-muted">
+                          ${item.price}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>

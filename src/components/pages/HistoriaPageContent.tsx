@@ -96,30 +96,24 @@ export function HistoriaPageContent() {
 
   const team = [
     {
-      initial: "M",
-      name: "Mari",
       role: pickLocalized(locale, { es: "Tostado & barra", en: "Roasting & bar" }),
       bio: pickLocalized(locale, {
-        es: "Decide cada perfil de tostado y, casi siempre, quien te sirve el primer cortadito de la mañana.",
-        en: "She chooses every roast profile and, most mornings, pours your first cortadito.",
+        es: "Decidimos cada perfil de tostado y, casi siempre, quien te sirve el primer cortadito de la mañana.",
+        en: "We choose every roast profile and, most mornings, pour your first cortadito.",
       }),
     },
     {
-      initial: "C",
-      name: "Carlos",
       role: pickLocalized(locale, { es: "Cocina & brunch", en: "Kitchen & brunch" }),
       bio: pickLocalized(locale, {
-        es: "El del pan con lechón y el mojo de la casa. Madruga para que el horno esté listo cuando abrimos.",
-        en: "The pan con lechón and house mojo. He's up early so the oven is ready when we open.",
+        es: "El pan con lechón y el mojo de la casa. Madrugamos para que el horno esté listo cuando abrimos.",
+        en: "The pan con lechón and house mojo. We're up early so the oven is ready when we open.",
       }),
     },
     {
-      initial: "L",
-      name: "Lucía",
       role: pickLocalized(locale, { es: "Panadería", en: "Bakery" }),
       bio: pickLocalized(locale, {
-        es: "Lamina los croissants a mano y hornea los pastelitos del día. Si huele a guayaba, es cosa suya.",
-        en: "She laminates croissants by hand and bakes the day's pastelitos. If it smells like guava, that's her.",
+        es: "Laminamos los croissants a mano y horneamos los pastelitos del día. Si huele a guayaba, es cosa nuestra.",
+        en: "We laminate croissants by hand and bake the day's pastelitos. If it smells like guava, that's us.",
       }),
     },
   ];
@@ -165,8 +159,8 @@ export function HistoriaPageContent() {
             </h2>
             <p data-rv className="mt-6 max-w-[50ch] text-[17px] leading-[1.65] text-muted">
               {pickLocalized(locale, {
-                es: "Mari y Carlos llegaron a Cutler Bay con poco más que una cafetera italiana y la receta de cortadito de la abuela. Cada mañana salía una colada a la acera y, sin darse cuenta, la esquina se fue llenando de gente.",
-                en: "Mari and Carlos arrived in Cutler Bay with little more than an Italian moka pot and grandma's cortadito recipe. Every morning a colada went out to the sidewalk and, before they knew it, the corner filled with people.",
+                es: "La familia llegó a Cutler Bay con poco más que una cafetera italiana y la receta de cortadito de la abuela. Cada mañana salía una colada a la acera y, sin darse cuenta, la esquina se fue llenando de gente.",
+                en: "The family arrived in Cutler Bay with little more than an Italian moka pot and grandma's cortadito recipe. Every morning a colada went out to the sidewalk and, before they knew it, the corner filled with people.",
               })}
             </p>
             <p data-rv className="mt-4 max-w-[50ch] text-[17px] leading-[1.65] text-muted">
@@ -258,7 +252,7 @@ export function HistoriaPageContent() {
             })}
           </blockquote>
           <p className="mt-6 text-[13px] font-bold tracking-[0.22em] text-gold-dark uppercase">
-            Mari & Carlos · {pickLocalized(locale, { es: "fundadores", en: "founders" })}
+            {pickLocalized(locale, { es: "Los fundadores", en: "The founders" })}
           </p>
         </div>
       </section>
@@ -272,18 +266,14 @@ export function HistoriaPageContent() {
           <div data-rv-group className="mt-10 grid gap-6 md:grid-cols-3 md:gap-8">
             {team.map((person, index) => (
               <article
-                key={person.name}
+                key={person.role}
                 className="border border-border bg-cream-card p-8 transition-[transform,box-shadow,border-color] duration-[450ms] hover:-translate-y-[7px] hover:border-gold-dark/50 hover:shadow-[0_26px_60px_rgba(43,36,29,0.12)]"
               >
                 <div
-                  className={`mb-5 grid h-[60px] w-[60px] place-items-center rounded-full font-serif text-[26px] ${teamColors[index]}`}
-                >
-                  {person.initial}
-                </div>
-                <h3 className="font-serif text-[26px]">{person.name}</h3>
-                <p className="mt-1 font-mono text-[11px] tracking-[0.18em] text-gold-dark uppercase">
-                  {person.role}
-                </p>
+                  className={`mb-5 h-[60px] w-[60px] rounded-full ${teamColors[index]}`}
+                  aria-hidden
+                />
+                <h3 className="font-serif text-[26px]">{person.role}</h3>
                 <p className="mt-4 text-[15px] leading-[1.65] text-muted">{person.bio}</p>
               </article>
             ))}

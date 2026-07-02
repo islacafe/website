@@ -1,4 +1,4 @@
-import { menuPhoto, siteImages } from "@/lib/images";
+import { menuPhoto } from "@/lib/images";
 import type { LocalizedString } from "@/lib/localized";
 
 export type MenuTag = "NUEVO" | "FAVORITO" | "VEGANO" | "PARA COMPARTIR";
@@ -221,7 +221,7 @@ export const menuCategories: MenuCategoryData[] = [
       en: "Eggs, toast, and Cuban bread to start the day. Served with fresh ingredients.",
     },
     priceMode: "usd",
-    heroPhoto: siteImages.tostadaIsla,
+    heroPhoto: menuPhoto("p_tostada.png"),
     items: [
       {
         name: { es: "Tortilla Sandwich", en: "Tortilla Sandwich" },
@@ -457,7 +457,7 @@ export const menuCategories: MenuCategoryData[] = [
       en: "Pastelitos, torrejas, and tres leches. Baked every morning — when they're gone, they're gone.",
     },
     priceMode: "usd",
-    heroPhoto: siteImages.pastelitosMenu,
+    heroPhoto: menuPhoto("p_pastelito.png"),
     items: [
       {
         name: { es: "Arroz Con Leche", en: "Arroz Con Leche" },
@@ -512,7 +512,8 @@ export const menuCategories: MenuCategoryData[] = [
 
 export type MenuPreviewItem = {
   name: LocalizedString;
-  price: string;
+  price?: string;
+  size?: string;
   icon: string;
   desc: LocalizedString;
 };
@@ -530,7 +531,7 @@ export const menuPreviewCards: MenuPreviewCard[] = [
     items: [
       {
         name: { es: "Café con Leche", en: "Café con Leche" },
-        price: "3.5",
+        size: "12oz",
         icon: "latte",
         desc: {
           es: "Espresso doble, leche al vapor, azúcar caramelizada.",
@@ -539,7 +540,7 @@ export const menuPreviewCards: MenuPreviewCard[] = [
       },
       {
         name: { es: "Cortadito", en: "Cortadito" },
-        price: "2.5",
+        size: "4oz",
         icon: "cortadito",
         desc: {
           es: "El shot de Miami — espresso cortado con leche evaporada.",
@@ -548,7 +549,7 @@ export const menuPreviewCards: MenuPreviewCard[] = [
       },
       {
         name: { es: "Cold Brew de la Casa", en: "House Cold Brew" },
-        price: "4.5",
+        size: "16oz",
         icon: "ice_americano",
         desc: {
           es: "Reposado 18 horas, notas de cacao y caña.",
@@ -559,7 +560,7 @@ export const menuPreviewCards: MenuPreviewCard[] = [
   },
   {
     heading: { es: "Brunch", en: "Brunch" },
-    photo: siteImages.tostadaIsla,
+    photo: menuPhoto("p_tostada.png"),
     items: [
       {
         name: { es: "Tostada Isla", en: "Tostada Isla" },
