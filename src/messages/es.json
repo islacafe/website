@@ -146,7 +146,7 @@
     "label": "Lo que dicen",
     "featuredRole": "Reseña en Google",
     "googleReviewCount": "{count} reseñas en Google",
-    "leaveReviewCta": "Dejar reseña",
+    "leaveReviewCta": "Dejar review",
     "leaveReviewAria": "Dejar una reseña de Isla Café en Google",
     "showReview": "Mostrar reseña {index}",
     "previousReviews": "Reseñas anteriores",

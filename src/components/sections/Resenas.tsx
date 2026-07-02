@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -12,43 +12,14 @@ import {
 } from "@/lib/google-reviews";
 import { reviewAvatarColors } from "@/lib/images";
 
-const FEATURED_INTERVAL_MS = 6000;
 const CAROUSEL_INTERVAL_MS = 5000;
 
 export function Resenas() {
   const t = useTranslations("resenas");
-  const { featured, reviews, rating, reviewCount } = googleReviews;
+  const { reviews, rating, reviewCount } = googleReviews;
   const reducedMotion = useReducedMotion();
-  const [active, setActive] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const reviewUrl = GOOGLE_REVIEW_URL;
-
-  useEffect(() => {
-    if (featured.length === 0 || reducedMotion) {
-      return;
-    }
-
-    let timer = setInterval(() => {
-      setActive((current) => (current + 1) % featured.length);
-    }, FEATURED_INTERVAL_MS);
-
-    const section = document.querySelector("#resenas");
-    const pause = () => clearInterval(timer);
-    const resume = () => {
-      timer = setInterval(() => {
-        setActive((current) => (current + 1) % featured.length);
-      }, FEATURED_INTERVAL_MS);
-    };
-
-    section?.addEventListener("mouseenter", pause);
-    section?.addEventListener("mouseleave", resume);
-
-    return () => {
-      clearInterval(timer);
-      section?.removeEventListener("mouseenter", pause);
-      section?.removeEventListener("mouseleave", resume);
-    };
-  }, [featured.length, reducedMotion]);
 
   useEffect(() => {
     if (reducedMotion || reviews.length <= 1) {
@@ -120,53 +91,7 @@ export function Resenas() {
       <div className="mx-auto max-w-[1240px] px-[clamp(20px,5vw,64px)]">
         <SectionHeader number={t("number")} label={t("label")} centered dark />
 
-        {featured.length > 0 && (
-          <>
-            <div data-testi className="mt-[30px] grid min-h-[300px]">
-              {featured.map((item, index) => (
-                <div
-                  key={item.id}
-                  data-testi-item
-                  className="col-start-1 row-start-1 flex flex-col items-center gap-6 text-center transition-opacity duration-[900ms] ease-in-out"
-                  style={{
-                    opacity: index === active ? 1 : 0,
-                    pointerEvents: index === active ? "auto" : "none",
-                  }}
-                >
-                  <div className="flex gap-1 text-base tracking-[3px] text-gold-light">
-                    {stars}
-                  </div>
-                  <p className="max-w-[min(46ch,92vw)] font-serif text-[clamp(24px,3vw,40px)] leading-[1.32] font-medium text-pretty whitespace-pre-line italic">
-                    {item.quote}
-                  </p>
-                  <span className="text-[13px] font-bold tracking-[0.22em] text-gold-muted uppercase">
-                    {item.author} ·{" "}
-                    <span className="text-gold-light">{t("featuredRole")}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div data-testi-dots className="mt-6 flex justify-center gap-2.5">
-              {featured.map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  data-testi-dot
-                  aria-label={t("showReview", { index: index + 1 })}
-                  onClick={() => setActive(index)}
-                  className={`h-2 w-2 rounded-full border-0 p-0 transition-all duration-300 ${
-                    index === active
-                      ? "scale-[1.35] bg-gold-light"
-                      : "scale-100 bg-cream-light/25"
-                  }`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-
-        <div className="mt-[74px]">
+        <div className="mt-[40px]">
           <div
             data-rv
             className="mb-[26px] flex flex-wrap items-center justify-between gap-5"
