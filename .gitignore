@@ -31,6 +31,9 @@ yarn-error.log*
 # env files
 .env*.local
 
+# owner-provided raw photos (processed copies live in public/images/)
+photo-originals/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

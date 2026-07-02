@@ -8,3 +8,6 @@ export const GOOGLE_MAPS_EMBED_URL =
 
 export const GOOGLE_MAPS_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=18901+SW+106th+Ave+Unit+101+Cutler+Bay+FL+33157";
+
+export const FACEBOOK_PROFILE_URL =
+  "https://www.facebook.com/profile.php?id=61591751213457";

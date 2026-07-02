@@ -9,7 +9,7 @@ import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
 import { useParallaxImages } from "@/hooks/useParallaxImages";
 import { innerRoutes } from "@/lib/inner-routes";
 import { pickLocalized } from "@/lib/localized";
-import { siteImages } from "@/lib/images";
+import { siteImages, teamIcon } from "@/lib/images";
 
 const teamColors = ["bg-[#9C8466]", "bg-[#5E5042]", "bg-[#B8966B] text-[#221C16]"];
 
@@ -96,6 +96,7 @@ export function HistoriaPageContent() {
 
   const team = [
     {
+      icon: "bar",
       role: pickLocalized(locale, { es: "Tostado & barra", en: "Roasting & bar" }),
       bio: pickLocalized(locale, {
         es: "Decidimos cada perfil de tostado y, casi siempre, quien te sirve el primer cortadito de la mañana.",
@@ -103,6 +104,7 @@ export function HistoriaPageContent() {
       }),
     },
     {
+      icon: "kitchen",
       role: pickLocalized(locale, { es: "Cocina & brunch", en: "Kitchen & brunch" }),
       bio: pickLocalized(locale, {
         es: "El pan con lechón y el mojo de la casa. Madrugamos para que el horno esté listo cuando abrimos.",
@@ -110,6 +112,7 @@ export function HistoriaPageContent() {
       }),
     },
     {
+      icon: "bakery",
       role: pickLocalized(locale, { es: "Panadería", en: "Bakery" }),
       bio: pickLocalized(locale, {
         es: "Laminamos los croissants a mano y horneamos los pastelitos del día. Si huele a guayaba, es cosa nuestra.",
@@ -270,9 +273,14 @@ export function HistoriaPageContent() {
                 className="border border-border bg-cream-card p-8 transition-[transform,box-shadow,border-color] duration-[450ms] hover:-translate-y-[7px] hover:border-gold-dark/50 hover:shadow-[0_26px_60px_rgba(43,36,29,0.12)]"
               >
                 <div
-                  className={`mb-5 h-[60px] w-[60px] rounded-full ${teamColors[index]}`}
-                  aria-hidden
-                />
+                  className={`mb-5 grid h-[60px] w-[60px] place-items-center rounded-full p-3 ${teamColors[index]}`}
+                >
+                  <SiteImage
+                    src={teamIcon(person.icon)}
+                    alt=""
+                    className="h-full w-full object-contain brightness-0 invert"
+                  />
+                </div>
                 <h3 className="font-serif text-[26px]">{person.role}</h3>
                 <p className="mt-4 text-[15px] leading-[1.65] text-muted">{person.bio}</p>
               </article>

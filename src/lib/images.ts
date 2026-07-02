@@ -26,6 +26,7 @@ export const menuCategoryImages: Record<string, string> = {
 
 export const menuIcon = (name: string): string => `/images/menu/icons/${name}.png`;
 export const menuPhoto = (file: string): string => `/images/menu/photos/${file}`;
+export const teamIcon = (name: string): string => `/images/team/${name}.png`;
 
 export const espacioGallery = [
   { src: siteImages.salon, className: "col-span-2 row-span-2" },

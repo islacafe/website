@@ -30,9 +30,11 @@ export function Menu() {
           className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3"
         >
           {menuPreviewCards.map((card) => (
-            <article
+            <Link
               key={pickLocalized(locale, card.heading)}
-              className="overflow-hidden border border-border bg-cream-card transition-[transform,box-shadow,border-color] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[7px] hover:border-gold-dark/50 hover:shadow-[0_26px_60px_rgba(43,36,29,0.12)]"
+              href={innerRoutes.menu}
+              aria-label={`${t("viewFull")} — ${pickLocalized(locale, card.heading)}`}
+              className="block overflow-hidden border border-border bg-cream-card transition-[transform,box-shadow,border-color] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[7px] hover:border-gold-dark/50 hover:shadow-[0_26px_60px_rgba(43,36,29,0.12)]"
             >
               <div className="relative aspect-[16/10] border-b border-border">
                 <SiteImage src={card.photo} alt="" fill />
@@ -73,7 +75,7 @@ export function Menu() {
                   ))}
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 

@@ -5,6 +5,7 @@ import { SiteImage } from "@/components/ui/SiteImage";
 import { CoffeeCupIcon } from "@/components/ui/CoffeeCupIcon";
 import { OrderMenu } from "@/components/ui/OrderMenu";
 import { Link } from "@/i18n/navigation";
+import { FACEBOOK_PROFILE_URL } from "@/lib/contact";
 import { innerRoutes, navRouteKeys } from "@/lib/inner-routes";
 import { siteImages } from "@/lib/images";
 
@@ -78,11 +79,13 @@ export function Footer() {
               >
                 {t("instagram")}
               </a>
-              <a href="#" className="transition-colors duration-300 hover:text-gold-light">
+              <a
+                href={FACEBOOK_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-gold-light"
+              >
                 {t("facebook")}
-              </a>
-              <a href="#" className="transition-colors duration-300 hover:text-gold-light">
-                {t("tiktok")}
               </a>
             </div>
           </div>
