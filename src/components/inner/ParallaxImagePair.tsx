@@ -4,6 +4,7 @@ type ParallaxImagePairProps = {
   primarySrc: string;
   secondarySrc: string;
   primaryPriority?: boolean;
+  hideSecondaryOnMobile?: boolean;
   primaryFrameClass?: string;
   secondaryFrameClass?: string;
   desktopSecondaryWidthClass?: string;
@@ -19,6 +20,7 @@ export function ParallaxImagePair({
   primarySrc,
   secondarySrc,
   primaryPriority = false,
+  hideSecondaryOnMobile = false,
   primaryFrameClass = defaultPrimaryFrame,
   secondaryFrameClass = defaultSecondaryFrame,
   desktopSecondaryWidthClass = "w-[52%]",
@@ -30,9 +32,11 @@ export function ParallaxImagePair({
         <div className={`relative aspect-[3/4] w-full overflow-hidden ${primaryFrameClass}`}>
           <SiteImage src={primarySrc} alt="" fill priority={primaryPriority} />
         </div>
-        <div className={`relative aspect-square w-[70%] overflow-hidden ${secondaryFrameClass}`}>
-          <SiteImage src={secondarySrc} alt="" fill />
-        </div>
+        {!hideSecondaryOnMobile && (
+          <div className={`relative aspect-square w-[70%] overflow-hidden ${secondaryFrameClass}`}>
+            <SiteImage src={secondarySrc} alt="" fill />
+          </div>
+        )}
       </div>
 
       <div className="relative hidden min-h-[560px] md:block">

@@ -77,9 +77,10 @@ export function Historia() {
 
           <ParallaxImagePair
             className="order-2 md:col-start-2 md:row-start-1 md:row-span-2"
-            primarySrc={siteImages.baristaPour}
+            primarySrc={siteImages.barra}
             secondarySrc={siteImages.cafeConLeche}
             primaryPriority
+            hideSecondaryOnMobile
             primaryFrameClass="border border-cream-light/16 shadow-[0_40px_80px_rgba(0,0,0,0.32)]"
             secondaryFrameClass="border border-cream-light/18 shadow-[0_30px_60px_rgba(0,0,0,0.3)]"
             desktopSecondaryWidthClass="w-[54%]"
