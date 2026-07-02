@@ -56,7 +56,7 @@ export function VisitanosPageContent() {
     },
     {
       label: pickLocalized(locale, { es: "Brunch", en: "Brunch" }),
-      time: pickLocalized(locale, { es: "DIARIO · 8:00 – 14:00", en: "DAILY · 8:00 – 14:00" }),
+      time: pickLocalized(locale, { es: "DIARIO · 9:00 – 14:00", en: "DAILY · 9:00 – 14:00" }),
     },
   ];
 
