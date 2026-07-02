@@ -38,25 +38,25 @@ export function VisitanosPageContent() {
 
   const chips =
     locale === "en"
-      ? ["📍 Cutler Bay, FL", "🅿 Free parking", "🕗 Opens 7:00"]
-      : ["📍 Cutler Bay, FL", "🅿 Parqueo gratis", "🕗 Abre 7:00"];
+      ? ["📍 Cutler Bay, FL", "🅿 Free parking", "🕗 Opens 7:00 AM"]
+      : ["📍 Cutler Bay, FL", "🅿 Parqueo gratis", "🕗 Abre 7:00 AM"];
 
   const hours = [
     {
       label: pickLocalized(locale, { es: "Lunes – Viernes", en: "Monday – Friday" }),
-      time: "7:00 – 18:00",
+      time: "7:00 AM – 6:00 PM",
     },
     {
       label: pickLocalized(locale, { es: "Sábado", en: "Saturday" }),
-      time: "8:00 – 18:00",
+      time: "8:00 AM – 6:00 PM",
     },
     {
       label: pickLocalized(locale, { es: "Domingo", en: "Sunday" }),
-      time: "9:00 – 15:00",
+      time: "9:00 AM – 3:00 PM",
     },
     {
       label: pickLocalized(locale, { es: "Brunch", en: "Brunch" }),
-      time: pickLocalized(locale, { es: "DIARIO · 9:00 – 14:00", en: "DAILY · 9:00 – 14:00" }),
+      time: pickLocalized(locale, { es: "DIARIO · 9:00 AM – 2:00 PM", en: "DAILY · 9:00 AM – 2:00 PM" }),
     },
   ];
 
