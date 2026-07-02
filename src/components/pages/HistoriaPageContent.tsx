@@ -6,6 +6,7 @@ import { DarkLetterRows } from "@/components/inner/DarkLetterRows";
 import { InnerPageCta } from "@/components/inner/InnerPageCta";
 import { InnerPageHeader } from "@/components/inner/InnerPageHeader";
 import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
+import { ParallaxImagePair } from "@/components/inner/ParallaxImagePair";
 import { useParallaxImages } from "@/hooks/useParallaxImages";
 import { innerRoutes } from "@/lib/inner-routes";
 import { pickLocalized } from "@/lib/localized";
@@ -173,25 +174,10 @@ export function HistoriaPageContent() {
               })}
             </p>
           </div>
-          <div className="relative mx-auto min-h-[320px] max-w-[420px] md:mx-0 md:max-w-none md:min-h-[560px]">
-            <div
-              data-plx="8"
-              className="absolute top-0 right-0 aspect-[3/4] w-[82%] overflow-hidden border border-border shadow-[0_40px_80px_rgba(43,36,29,0.16)] will-change-transform sm:w-[84%]"
-            >
-              <SiteImage src={siteImages.baristaPour} alt="" fill className="object-cover" />
-            </div>
-            <div
-              data-plx="-12"
-              className="absolute bottom-0 left-0 aspect-square w-[52%] overflow-hidden border border-border shadow-[0_30px_60px_rgba(43,36,29,0.14)] will-change-transform"
-            >
-              <SiteImage
-                src={siteImages.pastelitosHistoria}
-                alt=""
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+          <ParallaxImagePair
+            primarySrc={siteImages.baristaPour}
+            secondarySrc={siteImages.pastelitosHistoria}
+          />
         </div>
       </section>
 

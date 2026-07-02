@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { SiteImage } from "@/components/ui/SiteImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "@/i18n/navigation";
+import { ParallaxImagePair } from "@/components/inner/ParallaxImagePair";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { innerRoutes } from "@/lib/inner-routes";
 import { siteImages } from "@/lib/images";
@@ -22,6 +22,7 @@ export function Historia() {
 
   useEffect(() => {
     if (reducedMotion) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
 
     gsap.registerPlugin(ScrollTrigger);
     const triggers: ScrollTrigger[] = [];
@@ -57,7 +58,7 @@ export function Historia() {
           className="mt-16 grid items-start gap-[clamp(36px,5vw,84px)] md:grid-cols-[1.05fr_0.95fr]"
           data-hist-split
         >
-          <div>
+          <div className="order-1 md:col-start-1 md:row-start-1">
             <h2
               data-rv
               className="max-w-[16ch] font-serif text-[clamp(34px,4.4vw,60px)] leading-[1.06] font-semibold text-balance"
@@ -72,8 +73,20 @@ export function Historia() {
             >
               {t("body")}
             </p>
+          </div>
 
-            <div className="mt-[46px] grid gap-0" data-rv-group>
+          <ParallaxImagePair
+            className="order-2 md:col-start-2 md:row-start-1 md:row-span-2"
+            primarySrc={siteImages.baristaPour}
+            secondarySrc={siteImages.cafeConLeche}
+            primaryPriority
+            primaryFrameClass="border border-cream-light/16 shadow-[0_40px_80px_rgba(0,0,0,0.32)]"
+            secondaryFrameClass="border border-cream-light/18 shadow-[0_30px_60px_rgba(0,0,0,0.3)]"
+            desktopSecondaryWidthClass="w-[54%]"
+          />
+
+          <div className="order-3 md:col-start-1 md:row-start-2">
+            <div className="mt-0 grid gap-0 md:mt-[46px]" data-rv-group>
               {pillars.map((pillar, index) => (
                 <div
                   key={pillar.letter}
@@ -102,21 +115,6 @@ export function Historia() {
               >
                 {t("cta")}
               </Link>
-            </div>
-          </div>
-
-          <div className="relative mx-auto min-h-[320px] max-w-[420px] md:mx-0 md:max-w-none md:min-h-[560px]" data-hist-media>
-            <div
-              data-plx="8"
-              className="absolute top-0 right-0 aspect-[3/4] w-[82%] overflow-hidden border border-cream-light/16 shadow-[0_40px_80px_rgba(0,0,0,0.32)] will-change-transform sm:w-[88%]"
-            >
-              <SiteImage src={siteImages.baristaPour} alt="" fill priority />
-            </div>
-            <div
-              data-plx="-12"
-              className="absolute bottom-0 left-0 aspect-square w-[54%] overflow-hidden border border-cream-light/18 shadow-[0_30px_60px_rgba(0,0,0,0.3)] will-change-transform"
-            >
-              <SiteImage src={siteImages.cafeConLeche} alt="" fill />
             </div>
           </div>
         </div>

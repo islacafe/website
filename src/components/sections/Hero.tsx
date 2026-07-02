@@ -116,7 +116,7 @@ export function Hero() {
               {t("location")}
               <span className="hidden h-px w-8 bg-gradient-to-l from-transparent to-gold sm:block sm:w-11" />
             </div>
-            <h1 className="font-serif text-[clamp(40px,11vw,124px)] leading-[1.04] font-semibold text-balance text-cream-light sm:text-[clamp(54px,8.8vw,132px)] sm:leading-[1.03] [text-shadow:0_4px_40px_rgba(0,0,0,0.7),0_2px_10px_rgba(0,0,0,0.55)]">
+            <h1 className="font-serif text-[clamp(52px,14vw,124px)] leading-[1.02] font-semibold text-balance text-cream-light sm:text-[clamp(54px,8.8vw,132px)] sm:leading-[1.03] [text-shadow:0_4px_40px_rgba(0,0,0,0.7),0_2px_10px_rgba(0,0,0,0.55)]">
               {t("titleLine1")}
               <br />
               <em className="text-gold-light italic">{t("titleEmphasis")}</em>{" "}

@@ -6,6 +6,7 @@ import { DarkLetterRows } from "@/components/inner/DarkLetterRows";
 import { InnerPageCta } from "@/components/inner/InnerPageCta";
 import { InnerPageHeader } from "@/components/inner/InnerPageHeader";
 import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
+import { ParallaxImagePair } from "@/components/inner/ParallaxImagePair";
 import { useParallaxImages } from "@/hooks/useParallaxImages";
 import { GOOGLE_MAPS_PLACE_URL } from "@/lib/contact";
 import { innerRoutes } from "@/lib/inner-routes";
@@ -136,12 +137,15 @@ export function EspacioPageContent() {
             />
             <h2
               data-rv
-              className="max-w-[16ch] font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance"
+              className="max-w-none font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance md:max-w-[16ch]"
             >
-              {pickLocalized(locale, { es: "Hecho para", en: "Made for" })}{" "}
-              <em className="text-gold-dark italic">
-                {pickLocalized(locale, { es: "quedarse", en: "staying" })}
-              </em>{" "}
+              <span className="whitespace-nowrap md:whitespace-normal">
+                {pickLocalized(locale, { es: "Hecho para", en: "Made for" })}{" "}
+                <em className="text-gold-dark italic">
+                  {pickLocalized(locale, { es: "quedarse", en: "staying" })}
+                </em>
+              </span>
+              <br className="md:hidden" />{" "}
               {pickLocalized(locale, { es: "un rato más.", en: "a little longer." })}
             </h2>
             <p data-rv className="mt-6 max-w-[50ch] text-[17px] leading-[1.65] text-muted">
@@ -157,20 +161,10 @@ export function EspacioPageContent() {
               })}
             </p>
           </div>
-          <div className="relative mx-auto min-h-[320px] max-w-[420px] md:mx-0 md:max-w-none md:min-h-[560px]">
-            <div
-              data-plx="8"
-              className="absolute top-0 right-0 aspect-[3/4] w-[82%] overflow-hidden border border-border shadow-[0_40px_80px_rgba(43,36,29,0.16)] will-change-transform sm:w-[84%]"
-            >
-              <SiteImage src={siteImages.salon} alt="" fill className="object-cover" />
-            </div>
-            <div
-              data-plx="-12"
-              className="absolute bottom-0 left-0 aspect-square w-[52%] overflow-hidden border border-border shadow-[0_30px_60px_rgba(43,36,29,0.14)] will-change-transform"
-            >
-              <SiteImage src={siteImages.plantas} alt="" fill className="object-cover" />
-            </div>
-          </div>
+          <ParallaxImagePair
+            primarySrc={siteImages.salon}
+            secondarySrc={siteImages.plantas}
+          />
         </div>
       </section>
 
@@ -229,12 +223,13 @@ export function EspacioPageContent() {
             />
             <h2
               data-rv
-              className="max-w-[14ch] font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance"
+              className="max-w-none font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance md:max-w-[14ch]"
             >
-              {pickLocalized(locale, {
-                es: "Tu segunda oficina, sin la oficina.",
-                en: "Your second office, without the office.",
-              })}
+              <span className="whitespace-nowrap md:whitespace-normal">
+                {pickLocalized(locale, { es: "Tu segunda oficina,", en: "Your second office," })}
+              </span>
+              <br className="md:hidden" />{" "}
+              {pickLocalized(locale, { es: "sin la oficina.", en: "without the office." })}
             </h2>
             <p data-rv className="mt-4 max-w-[42ch] text-[16px] leading-[1.65] text-cream-light/74">
               {pickLocalized(locale, {

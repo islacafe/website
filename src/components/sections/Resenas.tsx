@@ -100,16 +100,16 @@ export function Resenas() {
               <div className="grid h-9 w-9 flex-none place-items-center rounded-full bg-cream-light font-sans font-extrabold text-ink">
                 G
               </div>
-              <div className="flex items-baseline gap-2.5">
-                <strong className="font-serif text-[30px] leading-none font-bold">
-                  {rating > 0 ? rating.toFixed(1) : "—"}
-                </strong>
-                <div>
+              <div>
+                <div className="flex items-center gap-2.5">
+                  <strong className="font-serif text-[30px] leading-none font-bold tabular-nums">
+                    {rating > 0 ? rating.toFixed(1) : "—"}
+                  </strong>
                   <div className="text-[15px] tracking-[2px] text-gold-light">{stars}</div>
-                  <span className="mt-0.5 block text-[13px] text-cream-light/60">
-                    {t("googleReviewCount", { count: reviewCount })}
-                  </span>
                 </div>
+                <span className="mt-0.5 block text-[13px] text-cream-light/60">
+                  {t("googleReviewCount", { count: reviewCount })}
+                </span>
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-2.5">

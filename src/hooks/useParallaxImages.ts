@@ -10,6 +10,7 @@ export function useParallaxImages(scope = "main") {
 
   useEffect(() => {
     if (reducedMotion) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
 
     gsap.registerPlugin(ScrollTrigger);
     const triggers: ScrollTrigger[] = [];
