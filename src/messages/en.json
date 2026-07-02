@@ -56,72 +56,7 @@
     "titleLine1": "Specialty coffee and Caribbean",
     "titleEmphasis": "brunch",
     "titleLine2": ".",
-    "viewFull": "View Menu",
-    "categories": [
-      {
-        "key": "cafe",
-        "label": "COFFEE",
-        "items": [
-          {
-            "name": "Café con Leche",
-            "price": "3.5",
-            "description": "Double espresso, steamed milk, caramelized sugar."
-          },
-          {
-            "name": "Cortadito",
-            "price": "2.5",
-            "description": "Miami's signature shot — espresso cut with evaporated milk."
-          },
-          {
-            "name": "House Cold Brew",
-            "price": "4.5",
-            "description": "Steeped 18 hours, notes of cacao and cane."
-          }
-        ]
-      },
-      {
-        "key": "brunch",
-        "label": "BRUNCH",
-        "items": [
-          {
-            "name": "Tostada Isla",
-            "price": "11",
-            "description": "Sourdough, avocado, poached egg, ají amarillo."
-          },
-          {
-            "name": "Pan con Lechón",
-            "price": "12",
-            "description": "Slow-roasted pork, mojo, pickled onion."
-          },
-          {
-            "name": "Mallorca French Toast",
-            "price": "10",
-            "description": "Sweet mallorca, vanilla custard, guava."
-          }
-        ]
-      },
-      {
-        "key": "dulces",
-        "label": "SWEETS",
-        "items": [
-          {
-            "name": "Guava Pastelito",
-            "price": "3",
-            "description": "Flaky puff pastry, guava and cream cheese."
-          },
-          {
-            "name": "Butter Croissant",
-            "price": "3.5",
-            "description": "Hand-laminated, 27 layers, baked fresh daily."
-          },
-          {
-            "name": "Tres Leches of the Day",
-            "price": "5",
-            "description": "Sponge cake, three milks, cinnamon."
-          }
-        ]
-      }
-    ]
+    "viewFull": "View Menu"
   },
   "espacio": {
     "number": "03",

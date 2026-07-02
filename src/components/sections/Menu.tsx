@@ -1,23 +1,15 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Link } from "@/i18n/navigation";
 import { innerRoutes } from "@/lib/inner-routes";
-import { menuCategoryImages } from "@/lib/images";
-
-type MenuCategory = {
-  key: string;
-  label: string;
-  items: Array<{
-    name: string;
-    price: string;
-    description: string;
-  }>;
-};
+import { menuPreviewCards } from "@/data/inner-pages/menu-data";
+import { menuIcon } from "@/lib/images";
+import { pickLocalized } from "@/lib/localized";
 
 export function Menu() {
   const t = useTranslations("menu");
-  const categories = t.raw("categories") as MenuCategory[];
+  const locale = useLocale();
 
   return (
     <section id="menu" className="bg-cream py-[clamp(90px,11vw,150px)]">
@@ -37,30 +29,40 @@ export function Menu() {
           data-menu-grid
           className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3"
         >
-          {categories.map((category) => (
+          {menuPreviewCards.map((card) => (
             <article
-              key={category.key}
+              key={pickLocalized(locale, card.heading)}
               className="overflow-hidden border border-border bg-cream-card transition-[transform,box-shadow,border-color] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[7px] hover:border-gold-dark/50 hover:shadow-[0_26px_60px_rgba(43,36,29,0.12)]"
             >
               <div className="relative aspect-[16/10] border-b border-border">
-                <SiteImage src={menuCategoryImages[category.key]} alt="" fill />
+                <SiteImage src={card.photo} alt="" fill />
               </div>
               <div data-rv className="px-[30px] pt-7 pb-[30px]">
-                <span className="mb-3.5 block font-mono text-xs tracking-[0.2em] text-gold-dark">
-                  {category.label}
+                <span className="mb-4 block font-mono text-xs tracking-[0.2em] text-gold-dark">
+                  {pickLocalized(locale, card.heading)}
                 </span>
-                <div className="flex flex-col gap-4">
-                  {category.items.map((item) => (
-                    <div key={item.name}>
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="font-serif text-[22px]">{item.name}</span>
-                        <span className="font-mono text-[13px] text-muted">
-                          {item.price}
+                <div className="flex flex-col gap-5">
+                  {card.items.map((item) => (
+                    <div
+                      key={pickLocalized(locale, item.name)}
+                      className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-3.5"
+                    >
+                      <SiteImage
+                        src={menuIcon(item.icon)}
+                        alt=""
+                        className="h-[30px] w-[30px] flex-none translate-y-0.5 object-contain"
+                      />
+                      <div>
+                        <span className="font-serif text-[22px] leading-none">
+                          {pickLocalized(locale, item.name)}
                         </span>
+                        <p className="mt-1 text-[13.5px] leading-[1.6] text-muted">
+                          {pickLocalized(locale, item.desc)}
+                        </p>
                       </div>
-                      <p className="mt-0.5 text-[13.5px] leading-[1.6] text-muted">
-                        {item.description}
-                      </p>
+                      <span className="font-mono text-[13px] text-muted">
+                        ${item.price}
+                      </span>
                     </div>
                   ))}
                 </div>

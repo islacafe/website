@@ -24,6 +24,9 @@ export const menuCategoryImages: Record<string, string> = {
   dulces: siteImages.pastelitosMenu,
 };
 
+export const menuIcon = (name: string): string => `/images/menu/icons/${name}.png`;
+export const menuPhoto = (file: string): string => `/images/menu/photos/${file}`;
+
 export const espacioGallery = [
   { src: siteImages.salon, className: "col-span-2 row-span-2" },
   { src: siteImages.barra, className: "" },

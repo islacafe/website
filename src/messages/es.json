@@ -56,72 +56,7 @@
     "titleLine1": "Café de especialidad y",
     "titleEmphasis": "brunch",
     "titleLine2": "caribeño.",
-    "viewFull": "Ver Menú",
-    "categories": [
-      {
-        "key": "cafe",
-        "label": "CAFÉ",
-        "items": [
-          {
-            "name": "Café con Leche",
-            "price": "3.5",
-            "description": "Espresso doble, leche al vapor, azúcar caramelizada."
-          },
-          {
-            "name": "Cortadito",
-            "price": "2.5",
-            "description": "El shot de Miami — espresso cortado con leche evaporada."
-          },
-          {
-            "name": "Cold Brew de la Casa",
-            "price": "4.5",
-            "description": "Reposado 18 horas, notas de cacao y caña."
-          }
-        ]
-      },
-      {
-        "key": "brunch",
-        "label": "BRUNCH",
-        "items": [
-          {
-            "name": "Tostada Isla",
-            "price": "11",
-            "description": "Masa madre, aguacate, huevo poché, ají amarillo."
-          },
-          {
-            "name": "Pan con Lechón",
-            "price": "12",
-            "description": "Cerdo asado lento, mojo, cebolla encurtida."
-          },
-          {
-            "name": "Mallorca French Toast",
-            "price": "10",
-            "description": "Mallorca dulce, custard de vainilla, guayaba."
-          }
-        ]
-      },
-      {
-        "key": "dulces",
-        "label": "DULCES",
-        "items": [
-          {
-            "name": "Pastelito de Guayaba",
-            "price": "3",
-            "description": "Hojaldre crujiente, guayaba y queso crema."
-          },
-          {
-            "name": "Croissant de Mantequilla",
-            "price": "3.5",
-            "description": "Laminado a mano, 27 capas, horneado del día."
-          },
-          {
-            "name": "Tres Leches del Día",
-            "price": "5",
-            "description": "Bizcocho esponjoso, tres leches, canela."
-          }
-        ]
-      }
-    ]
+    "viewFull": "Ver Menú"
   },
   "espacio": {
     "number": "03",
