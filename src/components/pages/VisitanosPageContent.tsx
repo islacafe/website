@@ -212,23 +212,28 @@ export function VisitanosPageContent() {
           </div>
           <div
             data-rv
-            className="border border-forest bg-forest p-8 text-cream-light sm:p-10"
+            className="rounded-3xl border border-sage-border bg-gradient-to-br from-sage-soft to-sage p-8 text-sage-deep shadow-[0_18px_50px_-30px_rgba(58,85,68,0.55)] sm:p-10"
           >
-            <div className="flex items-center gap-3">
-              <span
-                className={`h-2.5 w-2.5 rounded-full ${openStatus.isOpen ? "bg-[#7FB98A]" : "bg-[#C77B5A]"}`}
-              />
-              <span className="font-mono text-[12px] tracking-[0.14em] uppercase">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-sage-border/70 bg-cream-light/60 px-3.5 py-1.5">
+              <span className="relative flex h-2.5 w-2.5">
+                {openStatus.isOpen && (
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sage-dot opacity-70" />
+                )}
+                <span
+                  className={`relative inline-flex h-2.5 w-2.5 rounded-full ${openStatus.isOpen ? "bg-sage-dot" : "bg-clay"}`}
+                />
+              </span>
+              <span className="font-mono text-[11px] font-semibold tracking-[0.16em] text-sage-deep uppercase">
                 {openStatus.label}
               </span>
             </div>
-            <p className="mt-5 text-[15px] leading-[1.65] text-cream-light/74">
+            <p className="mt-6 font-serif text-[clamp(21px,2.2vw,27px)] leading-[1.4] text-balance text-sage-deep">
               {pickLocalized(locale, {
                 es: "La barra muele hasta media hora antes del cierre — siempre da tiempo a un último cortadito.",
                 en: "The bar keeps grinding until half an hour before closing — there is always time for one last cortadito.",
               })}
             </p>
-            <p className="mt-4 font-mono text-[11px] tracking-[0.1em] text-cream-light/50 uppercase">
+            <p className="mt-5 font-mono text-[11px] tracking-[0.1em] text-sage-deep/60 uppercase">
               {pickLocalized(locale, {
                 es: "Festivos con horario reducido. Lo anunciamos en Instagram.",
                 en: "Reduced hours on holidays. We announce them on Instagram.",
