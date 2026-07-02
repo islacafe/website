@@ -22,6 +22,10 @@ const SETUP_GUIDE_PUBLIC = path.join(ROOT, "public", "docs", "google-reviews-set
 const TEXT_SEARCH_QUERY = "Isla Café 18901 SW 106th Ave Cutler Bay FL";
 const FIELD_MASK = "id,displayName,rating,userRatingCount,reviews";
 
+// Only display review cards at or above this rating. The overall rating and
+// total review count still reflect all of Google's data.
+const MIN_DISPLAY_RATING = 4;
+
 function normalizePlaceId(id) {
   if (!id) return "";
   return id.startsWith("places/") ? id.slice("places/".length) : id;
@@ -162,7 +166,9 @@ async function main() {
 
   const placeId = await resolvePlaceId(apiKey, process.env.GOOGLE_PLACE_ID);
   const place = await fetchPlaceDetails(apiKey, placeId);
-  const reviews = (place.reviews ?? []).map(mapReview).filter((review) => review.text);
+  const reviews = (place.reviews ?? [])
+    .map(mapReview)
+    .filter((review) => review.text && review.rating >= MIN_DISPLAY_RATING);
   const featured = pickFeatured(reviews);
 
   if (reviews.length === 0 || !place.rating) {

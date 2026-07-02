@@ -4,6 +4,15 @@ The reviews section pulls live data from **Google Places API (New)** at build ti
 
 **Download:** On the live site, open `/docs/google-reviews-setup-guide.md` on your deployed domain, or use the copy in this repo.
 
+## Current account values (Isla Café Miami)
+
+| Item | Value |
+|------|-------|
+| Place ID (`GOOGLE_PLACE_ID`) | `ChIJd0_oWsvF2YgRqlJkqFquCR8` |
+| Google Cloud project | `isla-cafe-website` (org: zenpho.com) |
+
+Only 4–5★ reviews are shown as cards (see `MIN_DISPLAY_RATING` in `scripts/fetch-google-reviews.mjs`); the overall rating and total count still reflect all Google reviews.
+
 ## Requirements
 
 - Google Cloud project with **Places API (New)** enabled

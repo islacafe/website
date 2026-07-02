@@ -1,63 +1,63 @@
 {
-  "fetchedAt": null,
-  "source": "fallback",
-  "placeId": "",
-  "reviewUrl": "https://www.google.com/maps/search/?api=1&query=Isla+Caf%C3%A9+18901+SW+106th+Ave+Unit+101+Cutler+Bay+FL+33157",
-  "rating": 4.9,
-  "reviewCount": 487,
+  "fetchedAt": "2026-07-02T18:26:20.931Z",
+  "source": "live",
+  "placeId": "ChIJd0_oWsvF2YgRqlJkqFquCR8",
+  "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJd0_oWsvF2YgRqlJkqFquCR8",
+  "rating": 4.8,
+  "reviewCount": 26,
   "featured": [
     {
-      "id": "seed-1",
-      "quote": "The best cortadito south of Miami. I come every morning before work.",
-      "author": "Marisol R."
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pGM2VuaHhWbUl3TUUxQmFsOHpVV2RuTTBOVmRIYxAB",
+      "quote": "I’m so happy to have a new coffee spot down south! Every single thing I’ve had from here has been delicious. The iced lattes are made perfectly and the tiramisu latte tasted just as good as it looked. So far the avocado toast and the guava and cheese pastelitos are my favorite but I’m determined to keep coming back to try everything else they have on the menu. Really cute spot with great people, I definitely recommend.",
+      "author": "Natalia Guzman"
     },
     {
-      "id": "seed-2",
-      "quote": "The tostada isla and a cold brew — my Sunday ritual.\nIt feels like home.",
-      "author": "Daniel & Cris"
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pkSVR6SjBNVVJDTFMxTmJ5MTBPVzFMYUdseFUyYxAB",
+      "quote": "Great coffee, friendly staff, and a cozy atmosphere. Everything was fresh and delicious. Highly recommend!",
+      "author": "Inalvys Fonseca"
     },
     {
-      "id": "seed-3",
-      "quote": "Warm pastelitos, warm people, and real wifi. My favorite Miami office.",
-      "author": "Priya N."
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT25aQlVXWlpNRGhuV0U5S09IZzJVMlpJTjFCb2JuYxAB",
+      "quote": "Soo good! Staff was super friendly and the coffee was amazing! 10/10 Recommend.",
+      "author": "katelyn maro"
     }
   ],
   "reviews": [
     {
-      "id": "seed-a",
-      "name": "Ana Lucía",
-      "initial": "A",
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pGM2VuaHhWbUl3TUUxQmFsOHpVV2RuTTBOVmRIYxAB",
+      "name": "Natalia Guzman",
+      "initial": "N",
       "rating": 5,
-      "text": "Spectacular coffee and the staff treats you like family. Pastelitos sell out — come early.",
-      "time": "1 week ago",
-      "publishTime": ""
+      "text": "I’m so happy to have a new coffee spot down south! Every single thing I’ve had from here has been delicious. The iced lattes are made perfectly and the tiramisu latte tasted just as good as it looked. So far the avocado toast and the guava and cheese pastelitos are my favorite but I’m determined to keep coming back to try everything else they have on the menu. Really cute spot with great people, I definitely recommend.",
+      "time": "a week ago",
+      "publishTime": "2026-06-22T23:43:28.566413720Z"
     },
     {
-      "id": "seed-j",
-      "name": "Jorge M.",
-      "initial": "J",
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT25VMWFWRlJVRjlTVGt0T1FucGpXVUpGYlZaZlVIYxAB",
+      "name": "Tara arduini",
+      "initial": "T",
       "rating": 5,
-      "text": "The house cold brew is on another level. Calm vibe, perfect for getting work done.",
+      "text": "Highly recommend. Super nice staff and delicious drinks.",
+      "time": "a week ago",
+      "publishTime": "2026-06-20T14:57:50.461236595Z"
+    },
+    {
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pkSVR6SjBNVVJDTFMxTmJ5MTBPVzFMYUdseFUyYxAB",
+      "name": "Inalvys Fonseca",
+      "initial": "I",
+      "rating": 5,
+      "text": "Great coffee, friendly staff, and a cozy atmosphere. Everything was fresh and delicious. Highly recommend!",
       "time": "2 weeks ago",
-      "publishTime": ""
+      "publishTime": "2026-06-15T18:23:57.676488869Z"
     },
     {
-      "id": "seed-s",
-      "name": "Sophia T.",
-      "initial": "S",
+      "id": "places/ChIJd0_oWsvF2YgRqlJkqFquCR8/reviews/Ci9DQUlRQUNvZENodHljRjlvT25aQlVXWlpNRGhuV0U5S09IZzJVMlpJTjFCb2JuYxAB",
+      "name": "katelyn maro",
+      "initial": "K",
       "rating": 5,
-      "text": "My new go-to spot. The mallorca french toast is sinful. I'll be back every weekend.",
-      "time": "3 weeks ago",
-      "publishTime": ""
-    },
-    {
-      "id": "seed-r",
-      "name": "Rob D.",
-      "initial": "R",
-      "rating": 5,
-      "text": "Authentic, welcoming, and unpretentious. Cortadito like my grandmother made. 10/10.",
-      "time": "1 month ago",
-      "publishTime": ""
+      "text": "Soo good! Staff was super friendly and the coffee was amazing! 10/10 Recommend.",
+      "time": "a week ago",
+      "publishTime": "2026-06-20T14:48:01.828165682Z"
     }
   ]
 }
