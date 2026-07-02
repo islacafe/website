@@ -190,16 +190,9 @@
       }
     ]
   },
-  "whatsapp": {
-    "aria": "Chatear con Isla Café por WhatsApp",
-    "defaultMessage": "¡Hola! Me gustaría contactar a Isla Café."
-  },
   "order": {
     "menuLabel": "Ordenar",
-    "uberEats": "Uber Eats",
-    "toast": "Toast",
-    "doordash": "DoorDash",
-    "grubhub": "Grubhub"
+    "uberEats": "Uber Eats"
   },
   "footer": {
     "tagline": "Tu rincón de la isla en Cutler Bay. Café tostado en casa, brunch caribeño y mucha calma.",

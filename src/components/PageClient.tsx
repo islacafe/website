@@ -10,7 +10,6 @@ import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { Resenas } from "@/components/sections/Resenas";
 import { Visitanos } from "@/components/sections/Visitanos";
 import { FAQ } from "@/components/sections/FAQ";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -34,7 +33,6 @@ export function PageClient() {
           <FAQ />
         </main>
         <Footer />
-        <WhatsAppButton />
       </div>
     </SmoothScrollProvider>
   );

@@ -3,7 +3,6 @@
 import type { ReactNode } from "react";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -24,7 +23,6 @@ export function InnerShell({ children, activePage }: InnerShellProps) {
         <Nav variant="inner" activePage={activePage} />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton />
       </div>
     </SmoothScrollProvider>
   );

@@ -31,7 +31,6 @@ In your Cloudflare Pages project settings:
    - `INSTAGRAM_USER_ID` — Instagram Business Account ID
    - `GOOGLE_PLACES_API_KEY` — Google Places API (New) key
    - `GOOGLE_PLACE_ID` — Isla Café Google Place ID
-   - `NEXT_PUBLIC_WHATSAPP_NUMBER` — WhatsApp number in E.164 (e.g. `13055550147`)
 5. Redeploy from the latest `main` commit
 
 Production URL: [https://islacafemiami.pages.dev/es](https://islacafemiami.pages.dev/es)
@@ -86,14 +85,6 @@ Summary:
 3. Find the business **Place ID** (see setup doc — build logs can auto-resolve it)
 4. Add `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACE_ID` to Cloudflare Pages env vars
 
-## WhatsApp chat button
-
-A floating WhatsApp icon (bottom-right) lets customers message Isla Café in one tap. Uses click-to-chat — no API keys.
-
-See **[docs/WHATSAPP_SETUP.md](docs/WHATSAPP_SETUP.md)** for client setup, or [download the guide](public/docs/whatsapp-setup-guide.md).
-
-Default number: `(305) 555-0147` (`13055550147`). Set `NEXT_PUBLIC_WHATSAPP_NUMBER` in Cloudflare to replace with the client's real WhatsApp Business number.
-
 ## Project structure
 
 - `src/app/[locale]/` — localized routes (`/es`, `/en`)
@@ -108,7 +99,6 @@ Default number: `(305) 555-0147` (`13055550147`). Set `NEXT_PUBLIC_WHATSAPP_NUMB
 - `scripts/fetch-google-reviews.mjs` — Google Places API fetch
 - `docs/INSTAGRAM_SETUP.md` — Meta / Cloudflare setup guide for clients
 - `docs/GOOGLE_REVIEWS_SETUP.md` — Google Places API setup guide for clients
-- `docs/WHATSAPP_SETUP.md` — WhatsApp Business number setup for clients
 - `isla-cafe-miami-website-design/` — original design handoff (reference only)
 
 ## Images (Higgsfield)
@@ -129,7 +119,6 @@ See `public/images/README.md` for the full filename list.
 - Full bilingual content (Spanish default, English via nav toggle)
 - Testimonial rotator and Google review carousel (live data via Places API)
 - Leave a review on Google button
-- WhatsApp floating chat button (bottom-right)
 - FAQ accordion
 - Instagram 2×4 feed (auto-refreshed via scheduled Cloudflare rebuilds)
 - Mobile nav drawer and responsive layouts

@@ -190,16 +190,9 @@
       }
     ]
   },
-  "whatsapp": {
-    "aria": "Chat with Isla Café on WhatsApp",
-    "defaultMessage": "Hi! I'd like to get in touch with Isla Café."
-  },
   "order": {
     "menuLabel": "Order",
-    "uberEats": "Uber Eats",
-    "toast": "Toast",
-    "doordash": "DoorDash",
-    "grubhub": "Grubhub"
+    "uberEats": "Uber Eats"
   },
   "footer": {
     "tagline": "Your island corner in Cutler Bay. Coffee roasted in-house, Caribbean brunch, and plenty of calm.",

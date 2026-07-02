@@ -18,8 +18,6 @@ const OUTPUT_JSON = path.join(ROOT, "src", "data", "google-reviews.json");
 const FALLBACK_JSON = path.join(ROOT, "src", "data", "fallback", "google-reviews.json");
 const SETUP_GUIDE_SOURCE = path.join(ROOT, "docs", "GOOGLE_REVIEWS_SETUP.md");
 const SETUP_GUIDE_PUBLIC = path.join(ROOT, "public", "docs", "google-reviews-setup-guide.md");
-const WHATSAPP_GUIDE_SOURCE = path.join(ROOT, "docs", "WHATSAPP_SETUP.md");
-const WHATSAPP_GUIDE_PUBLIC = path.join(ROOT, "public", "docs", "whatsapp-setup-guide.md");
 
 const TEXT_SEARCH_QUERY = "Isla Café 18901 SW 106th Ave Cutler Bay FL";
 const FIELD_MASK = "id,displayName,rating,userRatingCount,reviews";
@@ -69,7 +67,6 @@ async function syncSetupGuide() {
   try {
     await mkdir(path.dirname(SETUP_GUIDE_PUBLIC), { recursive: true });
     await copyFile(SETUP_GUIDE_SOURCE, SETUP_GUIDE_PUBLIC);
-    await copyFile(WHATSAPP_GUIDE_SOURCE, WHATSAPP_GUIDE_PUBLIC);
   } catch {
     // Guide docs may not exist yet during first install
   }
