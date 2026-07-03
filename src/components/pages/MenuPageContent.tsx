@@ -328,8 +328,8 @@ export function MenuPageContent() {
           eyebrow={pickLocalized(locale, { es: "¿Antojo?", en: "Craving something?" })}
           titleLines={
             locale === "en"
-              ? ["Order for pickup,", "or stop by and we'll serve you", "at the bar."]
-              : ["Ordena para recoger,", "o pasa y te lo servimos", "en la barra."]
+              ? ["Order for pickup, or stop by", "and we'll serve you at the bar."]
+              : ["Ordena para recoger, o pasa", "y te lo servimos en la barra."]
           }
           primaryLabel={pickLocalized(locale, {
             es: "Ordenar online →",

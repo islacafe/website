@@ -10,6 +10,8 @@ export const siteImages = {
   barra: "/images/barra.jpeg",
   plantas: "/images/plantas.jpeg",
   mesaAlSol: "/images/mesa-al-sol.jpeg",
+  localBrunch: "/images/local-brunch.jpeg",
+  localTorrejas: "/images/local-torrejas.jpeg",
   pourOver: "/images/pour-over.jpeg",
   footerBg: "/images/footer-bg.png",
   heroVideoPoster: "/images/footer-bg-poster.jpg",
@@ -30,10 +32,10 @@ export const teamIcon = (name: string): string => `/images/team/${name}.png`;
 
 export const espacioGallery = [
   { src: siteImages.salon, className: "col-span-2 row-span-2" },
-  { src: siteImages.barra, className: "" },
+  { src: siteImages.localBrunch, className: "" },
   { src: siteImages.plantas, className: "" },
   { src: siteImages.mesaAlSol, className: "" },
-  { src: siteImages.pourOver, className: "" },
+  { src: siteImages.localTorrejas, className: "" },
 ] as const;
 
 export const reviewAvatarColors = [

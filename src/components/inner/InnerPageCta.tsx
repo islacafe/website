@@ -39,11 +39,14 @@ export function InnerPageCta({
           <div className="mb-4 text-xs font-extrabold tracking-[0.32em] text-gold-muted uppercase">
             {eyebrow}
           </div>
-          <h2 className="max-w-[16ch] font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance">
+          <h2
+            className={`font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold ${
+              titleLines?.length ? "max-w-[34ch]" : "max-w-[16ch] text-balance"
+            }`}
+          >
             {titleLines?.length ? (
               titleLines.map((line, index) => (
-                <span key={line}>
-                  {index > 0 ? <br /> : null}
+                <span key={`${index}-${line}`} className="block">
                   {line}
                 </span>
               ))
