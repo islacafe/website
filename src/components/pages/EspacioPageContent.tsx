@@ -6,7 +6,6 @@ import { DarkLetterRows } from "@/components/inner/DarkLetterRows";
 import { InnerPageCta } from "@/components/inner/InnerPageCta";
 import { InnerPageHeader } from "@/components/inner/InnerPageHeader";
 import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
-import { ParallaxImagePair } from "@/components/inner/ParallaxImagePair";
 import { useParallaxImages } from "@/hooks/useParallaxImages";
 import { GOOGLE_MAPS_PLACE_URL } from "@/lib/contact";
 import { innerRoutes } from "@/lib/inner-routes";
@@ -129,7 +128,7 @@ export function EspacioPageContent() {
       />
 
       <section className="bg-cream-light py-[clamp(80px,10vw,140px)]">
-        <div className="mx-auto grid max-w-[1240px] items-start gap-[clamp(36px,5vw,72px)] px-[clamp(20px,5vw,64px)] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mx-auto grid max-w-[1240px] items-center gap-[clamp(36px,5vw,72px)] px-[clamp(20px,5vw,64px)] lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <InnerSectionLabel
               index=""
@@ -161,10 +160,17 @@ export function EspacioPageContent() {
               })}
             </p>
           </div>
-          <ParallaxImagePair
-            primarySrc={siteImages.salon}
-            secondarySrc={siteImages.plantas}
-          />
+          <div
+            data-plx="8"
+            className="relative mx-auto aspect-[4/3] w-full max-w-[420px] overflow-hidden border border-border shadow-[0_40px_80px_rgba(43,36,29,0.16)] will-change-transform lg:mx-0 lg:max-w-none"
+          >
+            <SiteImage
+              src={siteImages.salon}
+              alt=""
+              fill
+              className="object-cover object-center"
+            />
+          </div>
         </div>
       </section>
 

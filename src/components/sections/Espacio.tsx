@@ -17,7 +17,9 @@ export function Espacio() {
           data-rv
           className="max-w-[20ch] font-serif text-[clamp(34px,4.4vw,58px)] leading-[1.06] font-semibold text-balance"
         >
-          {t("title")}
+          {t("titleLine1")}
+          <br />
+          {t("titleLine2")}
         </h2>
 
         <div className="mt-[58px] grid auto-rows-[130px] grid-cols-2 gap-3 sm:auto-rows-[160px] sm:gap-[18px] md:auto-rows-[200px] md:grid-cols-4">

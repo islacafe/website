@@ -62,7 +62,8 @@
   "espacio": {
     "number": "03",
     "label": "Local",
-    "title": "Luz de la mañana, plantas y el aroma a tostado.",
+    "titleLine1": "Luz de la mañana, plantas",
+    "titleLine2": "y el aroma a tostado.",
     "cta": "Aprender más",
     "ctaAria": "Visitar la sección Visítanos para conocer más sobre Isla Café"
   },

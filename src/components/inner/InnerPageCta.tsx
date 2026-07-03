@@ -4,7 +4,8 @@ import { innerRoutes } from "@/lib/inner-routes";
 
 type InnerPageCtaProps = {
   eyebrow: string;
-  title: string;
+  title?: string;
+  titleLines?: string[];
   primaryLabel: string;
   primaryHref: string;
   secondaryLabel: string;
@@ -15,6 +16,7 @@ type InnerPageCtaProps = {
 export function InnerPageCta({
   eyebrow,
   title,
+  titleLines,
   primaryLabel,
   primaryHref,
   secondaryLabel,
@@ -38,7 +40,16 @@ export function InnerPageCta({
             {eyebrow}
           </div>
           <h2 className="max-w-[16ch] font-serif text-[clamp(30px,4.2vw,56px)] leading-[1.08] font-semibold text-balance">
-            {title}
+            {titleLines?.length ? (
+              titleLines.map((line, index) => (
+                <span key={line}>
+                  {index > 0 ? <br /> : null}
+                  {line}
+                </span>
+              ))
+            ) : (
+              title ?? ""
+            )}
           </h2>
         </div>
         <div>

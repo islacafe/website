@@ -62,7 +62,8 @@
   "espacio": {
     "number": "03",
     "label": "Local",
-    "title": "Morning light, plants, and the aroma of fresh roast.",
+    "titleLine1": "Morning light, plants,",
+    "titleLine2": "and the aroma of fresh roast.",
     "cta": "Learn more",
     "ctaAria": "Go to Visit Us to learn more about Isla Café"
   },

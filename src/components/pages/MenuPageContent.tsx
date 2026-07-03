@@ -326,10 +326,11 @@ export function MenuPageContent() {
       <div id="pedir">
         <InnerPageCta
           eyebrow={pickLocalized(locale, { es: "¿Antojo?", en: "Craving something?" })}
-          title={pickLocalized(locale, {
-            es: "Ordena para recoger, o pasa y te lo servimos en la barra.",
-            en: "Order for pickup, or stop by and we'll serve you at the bar.",
-          })}
+          titleLines={
+            locale === "en"
+              ? ["Order for pickup,", "or stop by and we'll serve you", "at the bar."]
+              : ["Ordena para recoger,", "o pasa y te lo servimos", "en la barra."]
+          }
           primaryLabel={pickLocalized(locale, {
             es: "Ordenar online →",
             en: "Order online →",
