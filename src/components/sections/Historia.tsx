@@ -81,6 +81,8 @@ export function Historia() {
             secondarySrc={siteImages.cafeConLeche}
             primaryPriority
             hideSecondaryOnMobile
+            primaryAspectClass="aspect-[4/3]"
+            primaryDesktopClass="absolute top-0 left-1/2 aspect-[4/3] w-[94%] -translate-x-1/2"
             primaryFrameClass="border border-cream-light/16 shadow-[0_40px_80px_rgba(0,0,0,0.32)]"
             secondaryFrameClass="border border-cream-light/18 shadow-[0_30px_60px_rgba(0,0,0,0.3)]"
             desktopSecondaryWidthClass="w-[54%]"

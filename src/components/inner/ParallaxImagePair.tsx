@@ -5,6 +5,9 @@ type ParallaxImagePairProps = {
   secondarySrc: string;
   primaryPriority?: boolean;
   hideSecondaryOnMobile?: boolean;
+  primaryAspectClass?: string;
+  primaryImageClass?: string;
+  primaryDesktopClass?: string;
   primaryFrameClass?: string;
   secondaryFrameClass?: string;
   desktopSecondaryWidthClass?: string;
@@ -21,6 +24,9 @@ export function ParallaxImagePair({
   secondarySrc,
   primaryPriority = false,
   hideSecondaryOnMobile = false,
+  primaryAspectClass = "aspect-[3/4]",
+  primaryImageClass = "object-cover object-center",
+  primaryDesktopClass = "absolute top-0 right-0 aspect-[3/4] w-[82%] sm:w-[84%]",
   primaryFrameClass = defaultPrimaryFrame,
   secondaryFrameClass = defaultSecondaryFrame,
   desktopSecondaryWidthClass = "w-[52%]",
@@ -29,8 +35,14 @@ export function ParallaxImagePair({
   return (
     <div className={`relative mx-auto w-full max-w-[420px] md:mx-0 md:max-w-none ${className ?? ""}`.trim()}>
       <div className="flex flex-col gap-4 md:hidden">
-        <div className={`relative aspect-[3/4] w-full overflow-hidden ${primaryFrameClass}`}>
-          <SiteImage src={primarySrc} alt="" fill priority={primaryPriority} />
+        <div className={`relative ${primaryAspectClass} w-full overflow-hidden ${primaryFrameClass}`}>
+          <SiteImage
+            src={primarySrc}
+            alt=""
+            fill
+            priority={primaryPriority}
+            className={primaryImageClass}
+          />
         </div>
         {!hideSecondaryOnMobile && (
           <div className={`relative aspect-square w-[70%] overflow-hidden ${secondaryFrameClass}`}>
@@ -42,9 +54,15 @@ export function ParallaxImagePair({
       <div className="relative hidden min-h-[560px] md:block">
         <div
           data-plx="8"
-          className={`absolute top-0 right-0 aspect-[3/4] w-[82%] overflow-hidden will-change-transform sm:w-[84%] ${primaryFrameClass}`}
+          className={`relative overflow-hidden will-change-transform ${primaryDesktopClass} ${primaryFrameClass}`}
         >
-          <SiteImage src={primarySrc} alt="" fill priority={primaryPriority} />
+          <SiteImage
+            src={primarySrc}
+            alt=""
+            fill
+            priority={primaryPriority}
+            className={primaryImageClass}
+          />
         </div>
         <div
           data-plx="-12"
