@@ -499,7 +499,7 @@ export const menuCategories: MenuCategoryData[] = [
       },
       {
         name: { es: "Tres Leches", en: "Tres Leches" },
-        price: "6.99",
+        price: "4.50",
         icon: "tres_leches",
         desc: {
           es: "Bizcocho esponjoso bañado en tres leches. Nuestro clásico.",
@@ -530,12 +530,12 @@ export const menuPreviewCards: MenuPreviewCard[] = [
     photo: menuPhoto("p_cappuccino.png"),
     items: [
       {
-        name: { es: "Café con Leche", en: "Café con Leche" },
+        name: { es: "Latte", en: "Latte" },
         size: "12oz",
         icon: "latte",
         desc: {
-          es: "Espresso doble, leche al vapor, azúcar caramelizada.",
-          en: "Double espresso, steamed milk, caramelized sugar.",
+          es: "Espresso equilibrado con leche vaporizada y una capa ligera de espuma.",
+          en: "Balanced espresso with steamed milk and a light layer of foam.",
         },
       },
       {
@@ -543,50 +543,50 @@ export const menuPreviewCards: MenuPreviewCard[] = [
         size: "4oz",
         icon: "cortadito",
         desc: {
-          es: "El shot de Miami — espresso cortado con leche evaporada.",
-          en: "The Miami shot — espresso cut with evaporated milk.",
+          es: "Un shot potente de espresso “cortado” con un toque de leche vaporizada. Fuerte y suave.",
+          en: "A bold espresso shot “cut” with a touch of steamed milk. Strong and smooth.",
         },
       },
       {
-        name: { es: "Cold Brew de la Casa", en: "House Cold Brew" },
-        size: "16oz",
-        icon: "ice_americano",
+        name: { es: "Capuccino", en: "Cappuccino" },
+        size: "8oz",
+        icon: "capuccino",
         desc: {
-          es: "Reposado 18 horas, notas de cacao y caña.",
-          en: "Steeped 18 hours, notes of cocoa and cane.",
+          es: "Capas perfectas de espresso, leche vaporizada y espuma. Textura aterciopelada.",
+          en: "Perfect layers of espresso, steamed milk, and foam. Velvety texture.",
         },
       },
     ],
   },
   {
-    heading: { es: "Brunch", en: "Brunch" },
+    heading: { es: "Desayuno", en: "Breakfast" },
     photo: menuPhoto("p_tostada.png"),
     items: [
       {
-        name: { es: "Tostada Isla", en: "Tostada Isla" },
-        price: "11",
-        icon: "egg_toast",
+        name: { es: "Avocado Toast", en: "Avocado Toast" },
+        price: "7.99",
+        icon: "avocado_toast",
         desc: {
-          es: "Masa madre, aguacate, huevo poché, ají amarillo.",
-          en: "Sourdough, avocado, poached egg, ají amarillo.",
+          es: "Aguacate, aceite de oliva y sal marina sobre masa madre.",
+          en: "Avocado, olive oil, and sea salt on sourdough.",
         },
       },
       {
-        name: { es: "Pan con Lechón", en: "Pan con Lechón" },
-        price: "12",
+        name: { es: "Pan Con Lechón", en: "Pan Con Lechón" },
+        price: "13.99",
         icon: "pan_lechon",
         desc: {
-          es: "Cerdo asado lento, mojo, cebolla encurtida.",
-          en: "Slow-roasted pork, mojo, pickled onion.",
+          es: "Pernil de cerdo asado lento con cebolla y mojo.",
+          en: "Slow-roasted pork shoulder with onion and mojo.",
         },
       },
       {
-        name: { es: "Mallorca French Toast", en: "Mallorca French Toast" },
-        price: "10",
-        icon: "torreja",
+        name: { es: "Signature Avocado Toast", en: "Signature Avocado Toast" },
+        price: "15.99",
+        icon: "signature_avocado",
         desc: {
-          es: "Mallorca dulce, custard de vainilla, guayaba.",
-          en: "Sweet mallorca, vanilla custard, guava.",
+          es: "Pasta especial de aguacate con un huevo al gusto y medio aguacate, coronado con bacon, tomate y queso.",
+          en: "Special avocado spread with an egg any style and half an avocado, topped with bacon, tomato, and cheese.",
         },
       },
     ],
@@ -596,30 +596,30 @@ export const menuPreviewCards: MenuPreviewCard[] = [
     photo: menuPhoto("p_nutella.png"),
     items: [
       {
-        name: { es: "Pastelito de Guayaba", en: "Guava Pastelito" },
-        price: "3",
+        name: { es: "Pastelitos", en: "Pastelitos" },
+        price: "1.75",
         icon: "pastelito",
         desc: {
-          es: "Hojaldre crujiente, guayaba y queso crema.",
-          en: "Crispy puff pastry, guava, and cream cheese.",
+          es: "Hojaldre relleno de guayaba, queso o carne. Recién horneado.",
+          en: "Puff pastry filled with guava, cheese, or meat. Freshly baked.",
         },
       },
       {
-        name: { es: "Croissant de Mantequilla", en: "Butter Croissant" },
-        price: "3.5",
+        name: { es: "Nutella Croissant", en: "Nutella Croissant" },
+        price: "4.95",
         icon: "croissant",
         desc: {
-          es: "Laminado a mano, 27 capas, horneado del día.",
-          en: "Hand-laminated, 27 layers, baked daily.",
+          es: "Croissant hojaldrado bañado en Nutella.",
+          en: "Flaky croissant dipped in Nutella.",
         },
       },
       {
-        name: { es: "Tres Leches del Día", en: "Tres Leches of the Day" },
-        price: "5",
+        name: { es: "Tres Leches", en: "Tres Leches" },
+        price: "4.50",
         icon: "tres_leches",
         desc: {
-          es: "Bizcocho esponjoso, tres leches, canela.",
-          en: "Fluffy sponge cake, three milks, cinnamon.",
+          es: "Bizcocho esponjoso bañado en tres leches. Nuestro clásico.",
+          en: "Fluffy sponge cake soaked in three milks. Our classic.",
         },
       },
     ],
