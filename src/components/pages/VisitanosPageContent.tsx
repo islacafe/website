@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { InnerPageHeader } from "@/components/inner/InnerPageHeader";
 import { InnerSectionLabel } from "@/components/inner/InnerSectionLabel";
 import { IslaMap } from "@/components/ui/IslaMap";
-import { GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/contact";
+import { GOOGLE_MAPS_DIRECTIONS_URL, ISLA_CAFE_EMAIL, ISLA_CAFE_PHONE, ISLA_CAFE_PHONE_TEL } from "@/lib/contact";
 import { pickLocalized } from "@/lib/localized";
 import { siteImages } from "@/lib/images";
 
@@ -160,7 +160,7 @@ export function VisitanosPageContent() {
               <InfoRow
                 icon="✆"
                 label={pickLocalized(locale, { es: "Contacto", en: "Contact" })}
-                value="(305) 555-0147 · hola@islacafe.miami"
+                value={`${ISLA_CAFE_PHONE} · ${ISLA_CAFE_EMAIL}`}
               />
               <InfoRow
                 icon="🅿"
@@ -181,7 +181,7 @@ export function VisitanosPageContent() {
                 {pickLocalized(locale, { es: "Cómo llegar →", en: "Get directions →" })}
               </a>
               <a
-                href="tel:+13055550147"
+                href={ISLA_CAFE_PHONE_TEL}
                 className="inline-flex items-center justify-center rounded-full border border-border bg-cream-card px-7 py-3.5 text-[13px] font-bold tracking-[0.08em] text-ink transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-gold-dark"
               >
                 {pickLocalized(locale, { es: "Llamar", en: "Call" })}

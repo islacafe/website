@@ -10,7 +10,8 @@
     "espacio": "Local",
     "instagram": "Instagram",
     "visitanos": "Visit Us",
-    "order": "Order"
+    "order": "Order",
+    "callAria": "Call the café"
   },
   "hero": {
     "location": "Cutler Bay · Miami",
@@ -26,29 +27,29 @@
   "historia": {
     "number": "02",
     "label": "Our story",
-    "titleLine1": "A corner where Miami feels like",
-    "titleEmphasis": "home",
-    "titlePunct": ".",
-    "body": "Isla was born from a family kitchen and the idea that good coffee is meant to be shared. We roast in small batches, bake every morning, and serve the cortadito the right way — unhurried, with care.",
+    "titleLine1": "That's how",
+    "titleEmphasis": "Isla Café",
+    "titlePunct": " was born.",
+    "body": "It all started with four friends, a shared dream, and the courage to take a chance.",
     "pillars": [
       {
         "letter": "A",
-        "title": "Roasted in-house",
-        "body": "Single-origin beans from small farms, roasted here in small batches every week."
+        "title": "Heritage & specialty",
+        "body": "Classic Cuban flavors alongside handcrafted specialty drinks — familiar recipes rediscovered with a fresh perspective."
       },
       {
         "letter": "B",
-        "title": "Baked daily",
-        "body": "Guava pastelitos, croissants, and tres leches, handmade before we open."
+        "title": "A leap of faith",
+        "body": "We traded comfort for uncertainty because we believed the community deserved a café that celebrates where we come from."
       },
       {
         "letter": "C",
-        "title": "Neighborhood table",
-        "body": "A place to stay awhile: neighbors, laptops, dominoes, and long conversations."
+        "title": "Friendship & culture",
+        "body": "More than a coffee shop — a place built by friendship, fueled by passion, and rooted in Cuban culture."
       }
     ],
     "cta": "Our Story",
-    "ctaAria": "Discover Isla Café's story on Instagram"
+    "ctaAria": "Read the full story of Isla Café"
   },
   "menu": {
     "number": "01",
@@ -97,7 +98,7 @@
     "hoursLabel": "Hours",
     "hours": "Mon–Fri · 7:00 AM – 6:00 PM\nSat · 8:00 AM – 6:00 PM\nSun · 9:00 AM – 3:00 PM",
     "contactLabel": "Contact",
-    "contact": "(305) 555-0147",
+    "contact": "(305) 964-5193",
     "orderOnline": "Order online",
     "getDirections": "Get directions",
     "getDirectionsAria": "Open directions to Isla Café in Google Maps",
@@ -144,7 +145,7 @@
   "innerMeta": {
     "historia": {
       "title": "Our Story — Isla Café Miami",
-      "description": "The story of Isla Café: from the first colada in Cutler Bay to the neighborhood corner we know today."
+      "description": "How four friends turned a shared dream into Isla Café — Cuban heritage, specialty coffee, and a welcoming corner in Cutler Bay."
     },
     "menu": {
       "title": "Menu — Isla Café Miami",

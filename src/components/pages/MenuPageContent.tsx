@@ -14,6 +14,7 @@ import {
   type MenuItemData,
 } from "@/data/inner-pages/menu-data";
 import { pickLocalized } from "@/lib/localized";
+import { ISLA_CAFE_PHONE } from "@/lib/contact";
 import { menuIcon, siteImages } from "@/lib/images";
 
 function ItemPrice({ cat, item }: { cat: MenuCategoryData; item: MenuItemData }) {
@@ -335,7 +336,7 @@ export function MenuPageContent() {
           })}
           primaryHref="#"
           secondaryLabel={pickLocalized(locale, { es: "Cómo llegar", en: "Get directions" })}
-          meta="18901 SW 106TH AVE · CUTLER BAY · (305) 555-0147"
+          meta={`18901 SW 106TH AVE · CUTLER BAY · ${ISLA_CAFE_PHONE}`}
         />
       </div>
     </>

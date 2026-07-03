@@ -3,6 +3,10 @@ export const GOOGLE_MAPS_PLACE_URL =
 
 export const ISLA_CAFE_ADDRESS = "18901 SW 106th Ave, Unit 101, Cutler Bay, FL 33157";
 
+export const ISLA_CAFE_PHONE = "(305) 964-5193";
+export const ISLA_CAFE_PHONE_TEL = "tel:+13059645193";
+export const ISLA_CAFE_EMAIL = "hola@islacafe.miami";
+
 export const GOOGLE_MAPS_EMBED_URL =
   "https://www.google.com/maps?q=18901%20SW%20106th%20Ave%20Unit%20101%20Cutler%20Bay%20FL%2033157&output=embed&z=16";
 

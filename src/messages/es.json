@@ -10,7 +10,8 @@
     "espacio": "Local",
     "instagram": "Instagram",
     "visitanos": "Visítanos",
-    "order": "Ordenar"
+    "order": "Ordenar",
+    "callAria": "Llamar al café"
   },
   "hero": {
     "location": "Cutler Bay · Miami",
@@ -26,29 +27,29 @@
   "historia": {
     "number": "02",
     "label": "Nuestra historia",
-    "titleLine1": "Una esquina donde Miami se siente como",
-    "titleEmphasis": "casa",
+    "titleLine1": "Así nació",
+    "titleEmphasis": "Isla Café",
     "titlePunct": ".",
-    "body": "Isla nació de una cocina familiar y de la idea de que un buen café se comparte. Tostamos en lotes pequeños, horneamos cada mañana y servimos el cortadito como se debe — sin prisa, con cariño.",
+    "body": "Todo empezó con cuatro amigos, un sueño compartido y el valor de arriesgarse.",
     "pillars": [
       {
         "letter": "A",
-        "title": "Tostado en casa",
-        "body": "Granos de origen único de fincas pequeñas, tostados aquí en pequeñas tandas cada semana."
+        "title": "Herencia y especialidad",
+        "body": "Sabores cubanos clásicos y bebidas de especialidad hechas a mano — recetas familiares redescubiertas con mirada fresca."
       },
       {
         "letter": "B",
-        "title": "Horneado del día",
-        "body": "Pastelitos de guayaba, croissants y tres leches, hechos a mano antes de abrir."
+        "title": "Un salto de fe",
+        "body": "Dejamos la comodidad por la incertidumbre porque creímos que la comunidad merecía un café que celebre de dónde venimos."
       },
       {
         "letter": "C",
-        "title": "Mesa de barrio",
-        "body": "Un sitio para quedarse: vecinos, laptops, dominó y largas sobremesas."
+        "title": "Amistad y cultura",
+        "body": "Más que una cafetería — un lugar construido por la amistad, impulsado por la pasión y arraigado en la cultura cubana."
       }
     ],
     "cta": "Nuestra Historia",
-    "ctaAria": "Conoce la historia de Isla Café en Instagram"
+    "ctaAria": "Lee la historia completa de Isla Café"
   },
   "menu": {
     "number": "01",
@@ -97,7 +98,7 @@
     "hoursLabel": "Horario",
     "hours": "Lun–Vie · 7:00 AM – 6:00 PM\nSáb · 8:00 AM – 6:00 PM\nDom · 9:00 AM – 3:00 PM",
     "contactLabel": "Contacto",
-    "contact": "(305) 555-0147",
+    "contact": "(305) 964-5193",
     "orderOnline": "Ordenar online",
     "getDirections": "Buscar dirección",
     "getDirectionsAria": "Abrir direcciones a Isla Café en Google Maps",
@@ -144,7 +145,7 @@
   "innerMeta": {
     "historia": {
       "title": "Historia — Isla Café Miami",
-      "description": "La historia de Isla Café: desde la primera colada en Cutler Bay hasta la esquina de barrio que conocemos hoy."
+      "description": "Cómo cuatro amigos convirtieron un sueño compartido en Isla Café — herencia cubana, café de especialidad y un rincón acogedor en Cutler Bay."
     },
     "menu": {
       "title": "Menú — Isla Café Miami",

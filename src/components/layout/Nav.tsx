@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { OrderMenu } from "@/components/ui/OrderMenu";
 import { Link, usePathname } from "@/i18n/navigation";
+import { ISLA_CAFE_PHONE_TEL } from "@/lib/contact";
 import { orderPlatforms } from "@/lib/order";
 import { siteImages } from "@/lib/images";
 import { innerRoutes, navRouteKeys, type InnerRouteKey } from "@/lib/inner-routes";
@@ -13,6 +14,23 @@ type NavProps = {
   variant?: "home" | "inner";
   activePage?: InnerRouteKey;
 };
+
+function PhoneIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
 
 export function Nav({ variant = "home", activePage }: NavProps) {
   const t = useTranslations("nav");
@@ -54,6 +72,10 @@ export function Nav({ variant = "home", activePage }: NavProps) {
 
   const langBorder = showSolidNav ? "border-ink/15" : "border-white/35";
   const inactiveLang = showSolidNav ? "text-ink/70" : "text-white/70";
+
+  const callBtnClass = showSolidNav
+    ? "border-ink/15 bg-cream/90 text-ink hover:border-gold-dark hover:text-gold-dark"
+    : "border-white/35 bg-ink-deep/20 text-white backdrop-blur-sm hover:border-gold-light hover:text-gold-light";
 
   return (
     <>
@@ -117,6 +139,14 @@ export function Nav({ variant = "home", activePage }: NavProps) {
               EN
             </Link>
           </div>
+
+          <a
+            href={ISLA_CAFE_PHONE_TEL}
+            aria-label={t("callAria")}
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-[border-color,color,transform] duration-300 hover:-translate-y-0.5 ${callBtnClass}`}
+          >
+            <PhoneIcon className="h-[17px] w-[17px]" />
+          </a>
 
           <OrderMenu variant="nav" scrolled={showSolidNav} />
 
@@ -186,6 +216,14 @@ export function Nav({ variant = "home", activePage }: NavProps) {
                   EN
                 </Link>
               </div>
+              <a
+                href={ISLA_CAFE_PHONE_TEL}
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex items-center gap-2.5 text-[15px] font-semibold tracking-[0.04em] text-ink"
+              >
+                <PhoneIcon className="h-4 w-4 text-gold-dark" />
+                {t("callAria")}
+              </a>
               <div>
                 <div className="mb-2 text-[11px] font-extrabold tracking-[0.24em] text-gold-muted uppercase">
                   {order("menuLabel")}
